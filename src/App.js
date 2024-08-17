@@ -5,8 +5,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./routes/Home";
 import Project from "./routes/Project";
 
-import { Fragment, useEffect } from "react";
-
 function App() {
 
 	return (
@@ -14,7 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/home" element={<Home />} />
-				<Route path="/project" element={<Project />} />
+				<Route path="/project/:title" element={<Project />} />
 			</Routes>
 		</>
 	);
