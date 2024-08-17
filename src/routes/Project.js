@@ -46,9 +46,8 @@ const MarkdownComponents = {
 			{children}
 		</pre>
 	),
-	timeline: Timeline
+	timeline: Timeline,
 };
-
 
 const Project = () => {
 	const { title } = useParams();
@@ -59,7 +58,9 @@ const Project = () => {
 
 	useEffect(() => {
 		if (projectData && projectData.folder) {
-			fetch("/projects/" + projectData.folder + "/content.md")
+			const url = `${process.env.PUBLIC_URL}/projects/${projectData.folder}/content.md`;
+
+			fetch(url)
 				.then((response) => response.text())
 				.then((text) => setMarkdownContent(text))
 				.catch((error) =>
@@ -83,10 +84,10 @@ const Project = () => {
 				</Link>
 
 				<div className="markdown-content mb-16">
-				<ReactMarkdown
-            components={MarkdownComponents}
-            rehypePlugins={[rehypeRaw]}
-          >
+					<ReactMarkdown
+						components={MarkdownComponents}
+						rehypePlugins={[rehypeRaw]}
+					>
 						{markdownContent}
 					</ReactMarkdown>
 				</div>

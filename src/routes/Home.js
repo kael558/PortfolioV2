@@ -50,7 +50,7 @@ function getTimeDifference(date) {
 }
 
 function formatDateRange(date) {
-	if (!date){
+	if (!date) {
 		return "Not started yet";
 	} else if (typeof date === "string") {
 		return getTimeDifference(date);
@@ -68,11 +68,10 @@ const HomePage = () => {
 	const completedProjects = projects
 		.filter((p) => p.percentComplete === 100)
 		.sort((a, b) => {
-			if (!a.date) // if no date is provided, assume it hasn't started yet
+			if (!a.date)
+				// if no date is provided, assume it hasn't started yet
 				return 1;
-			if (!b.date)
-				return -1;
-
+			if (!b.date) return -1;
 
 			const dateA =
 				typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
@@ -85,11 +84,10 @@ const HomePage = () => {
 	const inProgressProjects = projects
 		.filter((p) => p.percentComplete < 100)
 		.sort((a, b) => {
-			if (!a.date) // if no date is provided, assume it hasn't started yet
+			if (!a.date)
+				// if no date is provided, assume it hasn't started yet
 				return 1;
-			if (!b.date)
-				return -1;
-
+			if (!b.date) return -1;
 
 			const dateA = a.date.from;
 			const dateB = b.date.from;
@@ -157,7 +155,7 @@ const HomePage = () => {
 					>
 						<div className="flex flex-col md:flex-row items-center">
 							<img
-								src={"/projects/" + project.folder + "/cover.png"}
+								src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
 								alt={project.title}
 								className="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-6"
 							/>
@@ -222,7 +220,7 @@ const HomePage = () => {
 							className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
 						>
 							<img
-								src={"/projects/" + project.folder + "/cover.png"}
+								src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
 								alt={project.title}
 								className="w-full h-48 object-cover"
 							/>
