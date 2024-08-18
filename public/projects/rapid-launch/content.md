@@ -49,6 +49,6 @@ RapidLaunch is positioned to capture a significant portion of the growing market
 4. **Freemium Model**: Offer a free tier with basic features to attract users, with paid tiers for advanced functionality and support.
 5. **Affiliate Program**: Incentivize successful users to promote RapidLaunch through an affiliate program.
 6. **Targeted Social Media Advertising**: Run campaigns on platforms like LinkedIn and Twitter, focusing on developers and startup founders.
-7 **Cold Emailing and Outreach**: Reach out to potential users directly through personalized emails and messages.
+7. **Cold Emailing and Outreach**: Reach out to potential users directly through personalized emails and messages.
 
 This strategy focuses on building awareness within the developer community, showcasing the product's value, and providing multiple entry points for potential users to discover and adopt RapidLaunch.
