@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import ProjectData from "../ProjectData";
 import Timeline from "../components/Timeline";
 import rehypeRaw from "rehype-raw";
+import AudioPlayer from '../components/AudioPlayer';
+import People from '../components/People';
 
 const MarkdownComponents = {
 	h1: ({ children }) => (
-		<h1 className="text-4xl font-bold mb-6 text-purple-300 border-b-2 border-purple-500 pb-2">
+		<h1 className="text-4xl font-bold mb-6 text-purple-300 border-b-2 border-purple-500 pb-2 tracking-widest">
 			{children}
 		</h1>
 	),
 	h2: ({ children }) => (
-		<h2 className="text-3xl font-semibold mb-4 text-pink-400">{children}</h2>
+		<h2 className="text-3xl font-semibold mt-8 mb-4 text-pink-400 tracking-wider">{children}</h2>
 	),
 	h3: ({ children }) => (
 		<h3 className="text-2xl font-semibold mb-3 text-purple-300">{children}</h3>
 	),
 	p: ({ children }) => (
-		<p className="text-gray-300 leading-relaxed mb-4">{children}</p>
+		<p className="text-gray-300 leading-relaxed mb-4 tracking-wide">{children}</p>
 	),
 	ul: ({ children }) => (
 		<ul className="list-disc list-inside mb-4 text-gray-300">{children}</ul>
@@ -47,6 +49,8 @@ const MarkdownComponents = {
 		</pre>
 	),
 	timeline: Timeline,
+	audio: AudioPlayer,
+	people: People,
 };
 
 const Project = () => {
@@ -58,11 +62,24 @@ const Project = () => {
 
 	useEffect(() => {
 		if (projectData && projectData.folder) {
-			const url = `${process.env.PUBLIC_URL}/projects/${projectData.folder}/content.md`;
+			const baseUrl = `${process.env.PUBLIC_URL}/projects/${projectData.folder}`;
+			const contentUrl = `${baseUrl}/content.md`;
 
-			fetch(url)
+			fetch(contentUrl)
 				.then((response) => response.text())
-				.then((text) => setMarkdownContent(text))
+				.then((text) => {
+					// Replace image paths in the Markdown content
+					const updatedText = text.replace(
+						/!\[(.*?)\]\((.*?)\)/g,
+						(match, alt, src) => {
+							if (!src.startsWith("http") && !src.startsWith("/")) {
+								return `![${alt}](${baseUrl}/${src})`;
+							}
+							return match;
+						}
+					);
+					setMarkdownContent(updatedText);
+				})
 				.catch((error) =>
 					console.error("Error fetching Markdown file:", error)
 				);
@@ -74,16 +91,18 @@ const Project = () => {
 	}
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-gray-100 py-6 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-4xl mx-auto">
-				<Link
-					to="/"
-					className="flex items-center text-pink-400 hover:text-pink-300 mb-8 transition-colors duration-300"
-				>
-					<FaArrowLeft className="mr-2" /> Back to Home
-				</Link>
+				<div className="fixed top-4 left-4 z-10">
+					<Link
+						to="/"
+						className="flex items-center text-pink-400 hover:text-pink-300 transition-colors duration-300 bg-gray-900 bg-opacity-75 rounded-full py-2 px-4"
+					>
+						<FaArrowLeft className="mr-2" /> Back to Home
+					</Link>
+				</div>
 
-				<div className="markdown-content mb-16">
+				<div className="markdown-content mb-16 pt-16">
 					<ReactMarkdown
 						components={MarkdownComponents}
 						rehypePlugins={[rehypeRaw]}

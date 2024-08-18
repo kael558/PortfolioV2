@@ -62,8 +62,9 @@ export default [
         folder: "visualizing-diversity",
         percentComplete: 100,
         date: {from: "2021-05", to: "2022-01"},
-        tags: ["Research", "Learning"],
+        tags: ["Research", "Learning", "Launched"],
         has_project_details: true,
+        link: "https://kael558.github.io/EDIProjectPage/"
 
     },
     {
@@ -72,9 +73,10 @@ export default [
         folder: "rp_ss",
         percentComplete: 100,
         date: "2022-10",
-        tags: ["Hackathon"],
+        tags: ["Hackathon", "Video"],
         has_project_details: true,
-   
+        video: "https://lablab.ai/event/transforming-with-transformers/hummingbirds/Research%20Paper%20Clustering"
+
     },
     {
         title: "Stable Diffusion Video Creator",
@@ -82,8 +84,9 @@ export default [
         folder: "sd-creator-tool",
         percentComplete: 100,
         date: "2022-11",
-        tags: ["Hackathon"],
+        tags: ["Hackathon", "Video"],
         has_project_details: true,
+        video: "https://lablab.ai/event/stable-diffusion-hackathon/Fast%20Path/Stable%20Diffusion%20Creator%20Tool"
     },
     {
         title: "Automated Annotations with Zero-shot Learning",
@@ -100,8 +103,9 @@ export default [
         folder: "web-indexer",
         percentComplete: 100,
         date: "2023-01",
-        tags: ["Hackathon"],
+        tags: ["Hackathon", "Video"],
         has_project_details: true,
+        video: "https://lablab.ai/event/ai21-labs-hackathon/olympia/webindexer"
     },
     {
         title: "Language Learner",
@@ -109,7 +113,8 @@ export default [
         folder: "language-learner",
         percentComplete: 100,
         date: "2023-07",
-        tags: ["Hackathon"]
+        tags: ["Hackathon", "Video"],
+        video: "https://lablab.ai/event/eleven-labs-ai-hackathon/phomemes/languagelearner"
     },
     {
         title: "NavBot",
@@ -117,7 +122,8 @@ export default [
         folder: "navbot",
         percentComplete: 100,
         date: "2023-03",
-        tags: ["Hackathon"]
+        tags: ["Hackathon", "Video"],
+        video: "https://devpost.com/software/navbot-q3b8k2"
     },
     {
         title: "Car Retailer ChatBot",
@@ -157,7 +163,8 @@ export default [
         folder: "moemate",
         percentComplete: 100,
         date: {from: "2023-04", to: "2023-10"},
-        tags: ["Contract"]
+        tags: ["Contract", "Launched"],
+        link: "https://moemate.io"
     },
     {
         title: "PixPal Desktop",
@@ -165,27 +172,30 @@ export default [
         folder: "pixpal-desktop",
         percentComplete: 100,
         date: {from: "2023-11", to: "2024-04"},
-        tags: ["Startup"]
+        tags: ["Startup", "Launched"],
+        link: "https://www.elagonai.com/"
     },
     {
         title: "PixPal Website",
         description: "A chatbot specializing in intimate conversations",
         folder: "pixpal-website",
-        percentComplete: 95,
+        percentComplete: 70,
         date: {from: "2024-05"},
-        tags: ["Startup"]
+        tags: ["Startup", "Launched"],
+        has_project_details: true,
+        link: "https://pixpal.ca"
     },
     {
         title: "SimpleChain",
-        description: "A blockchain implementation",
+        description: "Automated software development with modular components",
         folder: "simplechain",
         percentComplete: 80,
         date: {from: "2023-07"},
-        tags: ["Startup"]
+        tags: ["Hobby"]
     },
     {
-        title: "Voice Assistant",
-        description: "A voice assistant to help with daily tasks",
+        title: "Personal AI Assistant",
+        description: "An AI assistant available through calling and texting",
         folder: "voice-assistant",
         percentComplete: 80,
         date: {from: "2024-07"},
@@ -198,35 +208,39 @@ export default [
         folder: "fluent-future",
         percentComplete: 50,
         date: {from: "2024-05"},
-        tags: ["Startup"]
+        tags: ["Startup"],
+        has_project_details: true,
     },
     {
-        title: "Ionic Template",
-        description: "A template for Ionic apps",
-        folder: "ionic-template",
+        title: "Rapid Launch",
+        description: "A template & guide for rapid launching of projects",
+        folder: "rapid-launch",
         percentComplete: 50,
-        date: {from: "2024-07"},
-        tags: ["Startup"]
+        date: {from: "2024-08"},
+        tags: ["Startup"],
+        has_project_details: true,
     },
     {
         title: "SmartyPants UI",
-        description: "A UI library",
+        description: "Accelerating front-end development with an integrated environment and AI",
         folder: "smartypants-ui",
-        percentComplete: 80,
+        percentComplete: 40,
         date: {from: "2024-07"},
-        tags: ["Startup"]
+        tags: ["Startup"],
+        has_project_details: true,
     },
     {
         title: "ScriptableAI",
-        description: "A tool to create AI scripts",
+        description: "A web tool to facilitate creation and voicing of scripts",
         folder: "scriptable-ai",
         percentComplete: 80,
         date: {from: "2024-07"},
-        tags: ["Startup"]
+        tags: ["Startup"],
+        has_project_details: true,
     },
     {
         title: "Viona Companion",
-        description: "A hardware companion called Viona",
+        description: "A personalized hardware companion for mental support and loneliness",
         folder: "viona",
         percentComplete: 10,
         date: {from: "2024-07"},
@@ -250,7 +264,7 @@ export default [
     },
     {
         title: "Commercialized Web Indexer",
-        description: "A commercial web page indexer",
+        description: "Make any web pages easily searchable beyond key word search",
         folder: "web-indexer-commercialized",
         percentComplete: 0,
         date: null,
@@ -290,48 +304,3 @@ export default [
     }
 ];
 
-
-/*
-# Elevenlabs pronunciation analysis - LanguageLearner
-A tool to analyze the pronunciation of words with feedback on each phoneme
-
-# NavBot
-A voice bot to help visually impaired people navigate the web
-
-# TDotChatBot
-A chatbot to help customers purchase products
-
-# Detective with AI NPCs
-Chat with AI NPCs to solve a crime
-
-# AI21 Discord Bot
-A Discord bot to answer user questions about AI21 
-
-# Font Diffusion
-A tool to generate custom fonts using diffusion models
-
-# MoeMate
-A chatbot website with various characters
-
-# PixPal Desktop
-Interactive characters that assist and react, aware of what's happening on your screen.
-
-# PixPal Website
-A chatbot specializing in intimate conversations
-
-Current projects:
-SimpleChain
-VoiceAssistant
-FutureFluent
-IonicTemplate
-SmartyPantsUI
-ScriptableAI
-Viona
-Feedback Form JS package
-Auto complete everywhere Google chrome extension
-Commercialized Web Indexer
-Personal knowledge management system
-Automated Socials
-
-
-*/

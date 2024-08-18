@@ -20,7 +20,7 @@ My goal was to create a question answering tool that can be easily integrated in
 
 ##  Implementation
 
-![Implementation](projects/web-indexer/diagram.jpg)
+![Implementation](diagram.jpg)
 
 The blue represents the steps taken to index a website. The domain and URL for the target website are inputted and the web crawler collects all the text. This text is then indexed into the vector database via AI21's embed API.
 

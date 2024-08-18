@@ -37,3 +37,14 @@ code {
 ::-webkit-scrollbar-thumb:active {
   background: linear-gradient(180deg, #5a24cc, #d03594); /* Darker gradient on active */
 }
+
+
+.vertical-timeline-element-date {
+  margin: 0 1rem !important;
+}
+
+@media only screen and (min-width: 1170px) {
+  .vertical-timeline-element-date {
+    margin: 0 1rem !important;
+  }
+}

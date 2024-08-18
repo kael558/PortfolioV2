@@ -30,7 +30,7 @@ Our goal was to create a tool to simplify and optimize the Stable Diffusion proc
 
 ##  Implementation
 
-![Implementation](projects/sd-creator-tool/implementation.png)
+![Implementation](implementation.png)
 
 The back-end was developed on Google Colab, integrated with Gradio and hosted on HuggingFace Spaces accessible by API endpoints.
 
@@ -39,11 +39,11 @@ The front-end, created using Flask and D3, queries this API whenever a user requ
 The API has two endpoints, one for generating an image and a conditioning tensor from a prompt, and another for receiving the conditioning tensors of both images to be interpolated and returning a list of interpolated images.
 We then used FFMPEG to generate the video from the frames.
 
-![Implementation](projects/sd-creator-tool/menu.png)
+![Implementation](menu.png)
 
 The user may select what model to use in the basic options.
 
-![Implementation](projects/sd-creator-tool/interface.png)
+![Implementation](interface.png)
 
 The user may input prompts and generate images to be placed on the timeline as key frames. The user may generate the in-between frames by clicking the “Interpolate” button. They may convert the frames into a video by clicking the “Create Video” button which they may download.
 

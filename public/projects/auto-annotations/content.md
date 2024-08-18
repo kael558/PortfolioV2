@@ -22,15 +22,15 @@ My goal for this project is to develop a tool to partially automate the data ann
 
 ##  Implementation
 
-![Implementation](projects/auto-annotations/stack.jpg)
+![Implementation](stack.jpg)
 
 I created the stack with Amazon S3 as storage and Label Studio as the annotator. Access to the integrations is managed by a secrets manager with Amazon. The output from each step of the pipeline will be saved in an S3 bucket.
 
-![Implementation](projects/auto-annotations/pipeline.jpg)
+![Implementation](pipeline.jpg)
 
 The pipeline is created to handle the dataset, to load the images, predict the annotations and finally save everything to the cloud. For more details on each step, the notebook is available with documentation.
 
-![Implementation](projects/auto-annotations/interface.jpg)
+![Implementation](interface.jpg)
 
 These are the predicted annotations in Label Studio after running the pipeline with a caption of “fruit baskets” and labels of “pineapple, banana and apple”. Label Studio allows verification of the labels and addition of new labels.
 
