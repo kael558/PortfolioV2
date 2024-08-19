@@ -210,6 +210,11 @@ export default [
         date: {from: "2024-05"},
         tags: ["Startup"],
         has_project_details: true,
+        required_investment: 10000,
+        next_milestone: {
+            title: "Launch",
+            date: "2024-10"
+        }
     },
     {
         title: "Rapid Launch",
@@ -219,6 +224,7 @@ export default [
         date: {from: "2024-08"},
         tags: ["Startup"],
         has_project_details: true,
+        required_investment: 5000,
     },
     {
         title: "SmartyPants UI",
@@ -228,6 +234,7 @@ export default [
         date: {from: "2024-07"},
         tags: ["Startup"],
         has_project_details: true,
+        required_investment: 10000,
     },
     {
         title: "ScriptableAI",
@@ -252,7 +259,8 @@ export default [
         folder: "feedback-form",
         percentComplete: 0,
         date: null,
-        tags: ["Startup"]
+        tags: ["Startup"],
+        required_investment: 2000,
     },
     {
         title: "Auto Complete Everywhere - Google chrome extension",
@@ -268,7 +276,8 @@ export default [
         folder: "web-indexer-commercialized",
         percentComplete: 0,
         date: null,
-        tags: ["Startup"]
+        tags: ["Startup"],
+        required_investment: 10000,
     },
     {
         title: "Personal Knowledge Management System",
@@ -276,7 +285,8 @@ export default [
         folder: "knowledge-management",
         percentComplete: 0,
         date: null,
-        tags: ["Startup"]
+        tags: ["Startup"],
+        required_investment: 10000,
     },
     {
         title: "Automated Socials",
@@ -284,7 +294,8 @@ export default [
         folder: "auto-socials",
         percentComplete: 0,
         date: null,
-        tags: ["Startup"]
+        tags: ["Startup"],
+        required_investment: 10000,
     },
     {
         title: "Harvard CS50's Web Dev Course",

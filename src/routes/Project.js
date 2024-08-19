@@ -51,6 +51,11 @@ const MarkdownComponents = {
 	timeline: Timeline,
 	audio: AudioPlayer,
 	people: People,
+	video: ({ src, controls = true }) => (
+		<video src={src} controls={controls} className="w-full rounded-lg mb-4">
+		  Your browser does not support the video tag.
+		</video>
+	  ),
 };
 
 const Project = () => {

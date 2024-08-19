@@ -24,8 +24,7 @@ Many immigrants arriving in Canada face significant language barriers, hindering
 These limitations can slow down the integration process and potentially impact the overall success and well-being of newcomers in Canada.
 
 ## Solution
-
-![Fluent Future App Interface](demo.mp4)
+<video src="../projects/fluent-future/demo.mp4"></video>
 
 Fluent Future offers a comprehensive, mobile-first solution that addresses these challenges head-on. Our application provides:
 
@@ -82,13 +81,13 @@ Fluent Future meets a vital need in the Canadian immigration sector by offering 
 - Canadian Focus: Specifically designed for integration into Canadian society and workplace.
 
 ### Go-to-Market Strategy
-
-1. Launch on Product Hunt and similar platforms for initial traction
-2. Content marketing through blogs, tutorials, and social media
-3. Targeted social media advertising for newcomers and ESL learners
-4. Partnerships with community centers and immigration organizations
-5. Freemium model offering basic features for free and premium features for subscribers
-6. Collaborations with language learning influencers and experts
+1. Initial launch with focus groups and word of mouth marketing
+2. Launch on Product Hunt and similar platforms for initial traction
+3. Content marketing through blogs, tutorials, and social media
+4. Targeted social media advertising for newcomers and ESL learners
+5. Partnerships with community centers and immigration organizations
+6. Freemium model offering basic features for free and premium features for subscribers
+7. Collaborations with language learning influencers and experts
 
 ## User Testimonial
 

@@ -16,7 +16,7 @@ SmartyPants UI addresses these issues by providing an all-in-one development env
 
 SmartyPants UI offers a cutting-edge development environment that overlays on top of your existing React projects. It features a floating window that lets you hover over and click on UI elements to instantly access and modify the associated source code. With AI integration, you can perform complex tasks using natural language commands, such as generating new components or altering existing ones without writing any code manually.
 
-![Short Demo](demo.gif)
+<video src="../projects/smartypants-ui/demo.mp4"></video>
 
 This tool not only simplifies the development process but also introduces a new way of interacting with and editing web applications, making it a valuable asset for both experienced developers and those with limited coding skills.
 
