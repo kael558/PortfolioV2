@@ -1,49 +1,28 @@
 import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 import { useSpring, animated, config, useTrail } from "react-spring";
 import projects from "../ProjectData";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import React, { useState, useEffect } from "react";
 import { useFirstVisit, formatDateRange } from "../Utils";
 
-import Projects from "../components/Projects";
-
-const getTagColor = (tag) => {
-	const colors = {
-		Personal: "bg-blue-500 text-white",
-		Archived: "bg-gray-500 text-white",
-		Work: "bg-green-500 text-white",
-		Education: "bg-yellow-500 text-black",
-		Contract: "bg-indigo-600 text-white",
-		Learning: "bg-teal-500 text-white",
-		Tool: "bg-orange-500 text-white",
-		School: "bg-pink-500 text-white",
-		Research: "bg-cyan-600 text-white",
-		Startup: "bg-red-600 text-white",
-		Hackathon: "bg-purple-600 text-white",
-		Hobby: "bg-emerald-500 text-white",
-		Launched: "bg-blue-500 text-white",
-		Video: "bg-rose-500 text-white",
-	};
-	return colors[tag] || "bg-gray-500 text-white"; // Default color
-};
-
-
+import NavigationBar from "../components/NavigationBar";
+import CurrentProject from "../components/CurrentProject";
+import PastProject from "../components/PastProject";
 
 const HomePage = () => {
-	const navigate = useNavigate();
-
 	const isFirstVisit = useFirstVisit();
+	const navigate = useNavigate();
 
 	let [projectsLookingForInvestment, otherProjects] = projects.reduce(
 		(acc, p) => {
-			acc[p.required_investment ? 0 : 1].push(
-				p
-			);
+			acc[p.required_investment ? 0 : 1].push(p);
 			return acc;
 		},
 		[[], []]
 	);
+
+	projectsLookingForInvestment = projectsLookingForInvestment.splice(0, 3);
 
 	otherProjects.sort((a, b) => {
 		if (!a.date)
@@ -58,20 +37,19 @@ const HomePage = () => {
 		return dateB.localeCompare(dateA);
 	});
 
-
-	
+	otherProjects = otherProjects.splice(0, 4);
 
 	useEffect(() => {
-		const savedScrollPosition = sessionStorage.getItem("scrollPosition");
+		const savedScrollPosition = sessionStorage.getItem("homeScrollPosition");
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
 		}
-		sessionStorage.removeItem("scrollPosition");
+		sessionStorage.removeItem("homeScrollPosition");
 	}, []);
 
 	const handleNavigate = (project) => {
 		// Save the scroll position
-		sessionStorage.setItem("scrollPosition", window.scrollY);
+		sessionStorage.setItem("homeScrollPosition", window.scrollY);
 
 		// Navigate to the project page
 		navigate(
@@ -83,8 +61,6 @@ const HomePage = () => {
 			}
 		);
 	};
-
-
 
 	const headerAnimation = useSpring({
 		opacity: 1,
@@ -120,8 +96,15 @@ const HomePage = () => {
 		delay: isFirstVisit ? 1200 : 0,
 	});
 
+	const trail = useTrail(projectsLookingForInvestment.length, {
+		to: { opacity: 1, transform: "translateY(0)" },
+		from: isFirstVisit ? { opacity: 0, transform: "translateY(20px)" } : {},
+		config: config.gentle,
+		delay: 200,
+	});
+
 	return (
-		<div className="min-h-screen bg-gray-900 text-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+		<div className="min-h-screen bg-gray-900 text-gray-100 pb-12 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-5xl mx-auto">
 				<animated.div style={headerAnimation}>
 					<h1 className="text-6xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-8">
@@ -154,30 +137,38 @@ const HomePage = () => {
 					<span className="text-pink-400 font-normal">AI products</span>.
 					<br /> <br />
 					<span className="">
-						I’m a Software Engineering graduate with high distinction, holding
-						minors in Computer Science and Physics. I’ve won 3 Generative AI
+						I'm a Software Engineering graduate with high distinction, holding
+						minors in Computer Science and Physics. I've won 3 Generative AI
 						Hackathons and have over 2 years of experience as a Software/AI
-						contractor. Currently, I’m focused on entrepreneurship, with two
+						contractor. Currently, I'm focused on entrepreneurship, with two
 						product launches and more in the pipeline.
-					</span>
-					<br /> <br />
-					<span className="">
-						Fluent Future is a language learning app for newcomers to Canada. It 
-						features pronunciation analysis, relevant roleplay scenarios, and 
-						personalized learning pathways. We are currently developing the MVP and testing 
-						with our focus groups in Ottawa. I am looking for investors to speed up the 
-						development of this app.
-
-						<br /> <br />
-
-						I am also creating a suite of developer tools targeted at the emerging market of
-						non-technical developers. As generative AI becomes more accessible, I believe
-						these tools will be essential for the next generation of developers. I am looking
-						for investors to help speed up the development of these tools.
 					</span>
 				</animated.p>
 
-				<Projects title="Current Investment Opportunities" projects={projectsLookingForInvestment} handleNavigate={handleNavigate} isFirstVisit={isFirstVisit} />
+				<animated.div style={projectSectionAnimation}>
+					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
+						Current Investment Opportunities
+					</h2>
+
+					{trail.map((style, index) => (
+						<animated.div key={index} style={style}>
+							<CurrentProject
+								key={index}
+								project={projectsLookingForInvestment[index]}
+								handleNavigate={handleNavigate}
+							/>
+						</animated.div>
+					))}
+					<div className="mt-8 text-center">
+                    <Link 
+                        to="/projects" 
+                        className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+                    >
+                        See more 
+                        <span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
+                    </Link>
+                </div>
+				</animated.div>
 
 				<animated.div style={projectSectionAnimation}>
 					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
@@ -185,70 +176,22 @@ const HomePage = () => {
 					</h2>
 					<div className="grid md:grid-cols-2 gap-8">
 						{otherProjects.map((project, index) => (
-							<div
+							<PastProject
 								key={index}
-								className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-200 hover:scale-105 hover:shadow-2xl"
-							>
-								<img
-									src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
-									alt={project.title}
-									className="w-full h-48 object-cover"
-								/>
-								<div className="p-6">
-									<h3 className="text-xl font-semibold mb-2 text-purple-300">
-										{project.title}
-									</h3>
-									<p className="text-gray-400 mb-4">{project.description}</p>
-									{project.tags && project.tags.length > 0 && (
-										<div className="mb-4">
-											{project.tags.map((tag, tagIndex) => (
-												<span
-													key={tagIndex}
-													className={`inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 opacity-90 ${getTagColor(
-														tag
-													)}`}
-												>
-													{tag}
-													{tag === "Launched" && project.link && (
-														<a
-															href={project.link}
-															target="_blank"
-															rel="noopener noreferrer"
-															className="ml-1 inline-block"
-														>
-															<FaExternalLinkAlt className="inline-block text-xs" />
-														</a>
-													)}
-													{tag === "Video" && project.video && (
-														<a
-															href={project.video}
-															target="_blank"
-															rel="noopener noreferrer"
-															className="ml-1 inline-block"
-														>
-															<FaExternalLinkAlt className="inline-block text-xs" />
-														</a>
-													)}
-												</span>
-											))}
-										</div>
-									)}
-
-									{project.has_project_details && (
-										<button
-											onClick={() => handleNavigate(project)}
-											className="text-pink-400 hover:text-pink-300 transition-colors duration-300"
-										>
-											View More Details <FaExternalLinkAlt className="inline ml-1" />
-										</button>
-									)}
-									<div className="text-right text-sm text-gray-400 mt-2">
-										{formatDateRange(project.date)}
-									</div>
-								</div>
-							</div>
+								project={project}
+								handleNavigate={handleNavigate}
+							/>
 						))}
 					</div>
+					<div className="mt-8 text-center">
+                    <Link 
+                        to="/projects" 
+                        className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+                    >
+                        See more 
+                        <span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
+                    </Link>
+                </div>
 				</animated.div>
 			</div>
 		</div>

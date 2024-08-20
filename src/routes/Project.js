@@ -15,7 +15,7 @@ const MarkdownComponents = {
 		</h1>
 	),
 	h2: ({ children }) => (
-		<h2 className="text-3xl font-semibold mt-8 mb-4 text-pink-400 tracking-wider">{children}</h2>
+		<h2 className="text-3xl font-semibold mt-12 mb-4 text-pink-400 tracking-wider">{children}</h2>
 	),
 	h3: ({ children }) => (
 		<h3 className="text-2xl font-semibold mb-3 text-purple-300">{children}</h3>
