@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate , useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import ProjectData from "../ProjectData";
 import Timeline from "../components/Timeline";
 import rehypeRaw from "rehype-raw";
-import AudioPlayer from '../components/AudioPlayer';
-import People from '../components/People';
+import AudioPlayer from "../components/AudioPlayer";
+import People from "../components/People";
 
 const MarkdownComponents = {
 	h1: ({ children }) => (
@@ -15,13 +15,17 @@ const MarkdownComponents = {
 		</h1>
 	),
 	h2: ({ children }) => (
-		<h2 className="text-3xl font-semibold mt-12 mb-4 text-pink-400 tracking-wider">{children}</h2>
+		<h2 className="text-3xl font-semibold mt-12 mb-4 text-pink-400 tracking-wider">
+			{children}
+		</h2>
 	),
 	h3: ({ children }) => (
 		<h3 className="text-2xl font-semibold mb-3 text-purple-300">{children}</h3>
 	),
 	p: ({ children }) => (
-		<p className="text-gray-300 leading-relaxed mb-4 tracking-wide">{children}</p>
+		<p className="text-gray-300 leading-relaxed mb-4 tracking-wide">
+			{children}
+		</p>
 	),
 	ul: ({ children }) => (
 		<ul className="list-disc list-inside mb-4 text-gray-300">{children}</ul>
@@ -53,9 +57,9 @@ const MarkdownComponents = {
 	people: People,
 	video: ({ src, controls = true }) => (
 		<video src={src} controls={controls} className="w-full rounded-lg mb-4">
-		  Your browser does not support the video tag.
+			Your browser does not support the video tag.
 		</video>
-	  ),
+	),
 };
 
 const Project = () => {
@@ -64,6 +68,11 @@ const Project = () => {
 	const projectData = ProjectData.find(
 		(project) => project.title.toLowerCase().replace(/\s+/g, "-") === title
 	);
+	const navigate = useNavigate();
+
+	const back = () => {
+		navigate(-1);
+	};
 
 	useEffect(() => {
 		if (projectData && projectData.folder) {
@@ -99,15 +108,15 @@ const Project = () => {
 		<div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-gray-100 py-6 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-4xl mx-auto">
 				<div className="fixed top-4 left-4 z-10">
-					<Link
-						to="/"
+					<button
 						className="flex items-center text-pink-400 hover:text-pink-300 transition-colors duration-300 bg-gray-900 bg-opacity-75 rounded-full py-2 px-4"
+						onClick={back}
 					>
 						<FaArrowLeft className="mr-2" /> Back to Home
-					</Link>
+					</button>
 				</div>
 
-				<div className="markdown-content mb-16 pt-16">
+				<div className="markdown-content mb-16">
 					<ReactMarkdown
 						components={MarkdownComponents}
 						rehypePlugins={[rehypeRaw]}

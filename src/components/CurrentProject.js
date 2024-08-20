@@ -7,7 +7,7 @@ const CurrentProject = ({ project, handleNavigate }) => {
 			className={`bg-gray-800 rounded-lg p-6 mb-8 transform transition duration-200 hover:scale-105 hover:shadow-2xl ${
 				project.has_project_details ? "cursor-pointer" : ""
 			}`}
-			onClick={() => project.has_project_details && handleNavigate(project)}
+			onClick={(e) => project.has_project_details && handleNavigate(e, project)}
 		>
 			<div className="flex flex-col md:flex-row h-full">
 				<img
@@ -23,7 +23,7 @@ const CurrentProject = ({ project, handleNavigate }) => {
 							</h3>
 							{project.has_project_details && (
 								<button
-									onClick={() => handleNavigate(project)}
+									onClick={(e) => handleNavigate(e, project)}
 									className="text-pink-400 hover:text-pink-300 transition-colors duration-300"
 								>
 									View More Details{" "}

@@ -51,13 +51,8 @@ function formatDateRange(date) {
 
 const getTagColor = (tag) => {
 	const colors = {
-		Personal: "bg-blue-500 text-white",
-		Archived: "bg-gray-500 text-white",
-		Work: "bg-green-500 text-white",
-		Education: "bg-yellow-500 text-black",
 		Contract: "bg-indigo-600 text-white",
 		Learning: "bg-teal-500 text-white",
-		Tool: "bg-orange-500 text-white",
 		School: "bg-pink-500 text-white",
 		Research: "bg-cyan-600 text-white",
 		Startup: "bg-red-600 text-white",

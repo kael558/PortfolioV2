@@ -38,7 +38,7 @@ export default [
 		folder: "minesweeper",
         percentComplete: 100,
         date: {from: "2020-01", to: "2020-03"},
-        tags: ["Learning"]
+        tags: ["Learning", "Hobby"]
     },
     {
         title: "Optical Character Recognition",
@@ -46,7 +46,7 @@ export default [
         folder: "ocr",
         percentComplete: 100,
         date: "2020-01",
-        tags: ["Learning"]
+        tags: ["Learning", "Hobby"]
     },
     {
         title: "TicTacToe Agent",
@@ -54,7 +54,7 @@ export default [
         folder: "tictactoe",
         percentComplete: 100,
         date: "2019-12",
-        tags: ["Learning"]
+        tags: ["Learning", "Hobby"]
     },
     {
         title: "Visualizing Diversity",

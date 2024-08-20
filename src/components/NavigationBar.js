@@ -1,15 +1,22 @@
 import React from 'react';
-import { FaHome, FaEnvelope, FaProjectDiagram } from 'react-icons/fa';
+import { FaHome, FaEnvelope, FaProjectDiagram, FaList } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 
 const NavigationBar = () => {
 
-    // get selected based on the current path
-    const [selected, setSelected] = React.useState('/');
+    // get initial path from the current location
+    const currentPath = window.location.pathname;
+    const initialPath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+
+    const [selected, setSelected] = React.useState(initialPath);
     const navigate = useNavigate();
 
     const handleNavigate = (path) => {
+        sessionStorage.removeItem("homeScrollPosition");
+        sessionStorage.removeItem("projectsScrollPosition");
+        sessionStorage.removeItem("pastProjectsScrollPosition");
+
         setSelected(path);
         navigate(path);
     }
@@ -36,6 +43,16 @@ const NavigationBar = () => {
                 >
                     <FaProjectDiagram />
                     <span>Projects</span>
+                </button>
+                <button
+                    to="/past-projects"
+                    className={`flex items-center space-x-2 text-lg font-medium ${
+                        selected === '/past-projects' ? 'text-pink-500' : 'text-gray-300'
+                    } hover:text-pink-500 transition-colors duration-300`}
+                    onClick={() => handleNavigate('/past-projects')}
+                >
+                    <FaList />
+                    <span>Past Projects</span>
                 </button>
 
 

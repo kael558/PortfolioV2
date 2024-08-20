@@ -6,7 +6,7 @@ const PastProject = ({ project, handleNavigate }) => {
 	return (
 		<div
 			className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-200 hover:scale-105 hover:shadow-2xl ${project.has_project_details ?'cursor-pointer':''}`}
-			onClick={() => project.has_project_details && handleNavigate(project)}
+			onClick={(e) => project.has_project_details && handleNavigate(e, project)}
 		>
 			<img
 				src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
@@ -25,28 +25,19 @@ const PastProject = ({ project, handleNavigate }) => {
 								key={tagIndex}
 								className={`inline-block rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 opacity-90 ${getTagColor(
 									tag
-								)}`}
+								)} ${(tag === "Launched" && project.link) || (tag === "Video" && project.video) ? 'cursor-pointer hover:opacity-100' : ''}`}
+								onClick={(e) => {
+									e.stopPropagation();
+									if (tag === "Launched" && project.link) {
+										window.open(project.link, '_blank', 'noopener,noreferrer');
+									} else if (tag === "Video" && project.video) {
+										window.open(project.video, '_blank', 'noopener,noreferrer');
+									}
+								}}
 							>
 								{tag}
-								{tag === "Launched" && project.link && (
-									<a
-										href={project.link}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="ml-1 inline-block"
-									>
-										<FaExternalLinkAlt className="inline-block text-xs" />
-									</a>
-								)}
-								{tag === "Video" && project.video && (
-									<a
-										href={project.video}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="ml-1 inline-block"
-									>
-										<FaExternalLinkAlt className="inline-block text-xs" />
-									</a>
+								{((tag === "Launched" && project.link) || (tag === "Video" && project.video)) && (
+									<FaExternalLinkAlt className="inline-block text-xs ml-1" />
 								)}
 							</span>
 						))}
@@ -55,7 +46,7 @@ const PastProject = ({ project, handleNavigate }) => {
 
 				{project.has_project_details && (
 					<button
-						onClick={() => handleNavigate(project)}
+						onClick={(e) => handleNavigate(e, project)}
 						className="text-pink-400 hover:text-pink-300 transition-colors duration-300"
 					>
 						View More Details <FaExternalLinkAlt className="inline ml-1" />

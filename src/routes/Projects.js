@@ -6,12 +6,12 @@ import { useFirstVisit, formatDateRange, getProgressBarColor } from "../Utils";
 import NavigationBar from "../components/NavigationBar";
 import CurrentProject from "../components/CurrentProject";
 import PastProject from "../components/PastProject";
+import BackToTop from "../components/BackToTop";
 
 import React, { useEffect, useState } from "react";
 
 const ProjectsPage = () => {
 	const navigate = useNavigate();
-	const [showBackToTop, setShowBackToTop] = useState(false);
 
 	const isFirstVisit = useFirstVisit();
 	let [projectsLookingForInvestment, otherProjects] = projects.reduce(
@@ -37,7 +37,7 @@ const ProjectsPage = () => {
 
 	useEffect(() => {
 		const savedScrollPosition = sessionStorage.getItem(
-			"projectsScrollPosition"
+			"scrollPosition"
 		);
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
@@ -45,29 +45,11 @@ const ProjectsPage = () => {
 		sessionStorage.removeItem("projectsScrollPosition");
 	}, []);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setShowBackToTop(window.pageYOffset > 300);
-		};
 
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+	const handleNavigate = (e, project) => {
+		e.preventDefault();
+		e.stopPropagation();
 
-	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
-
-	const backToTopAnimation = useSpring({
-		opacity: showBackToTop ? 1 : 0,
-		transform: showBackToTop ? "translateY(0)" : "translateY(100px)",
-		config: config.wobbly,
-	});
-
-	const handleNavigate = (project) => {
 		// Save the scroll position
 		sessionStorage.setItem("projectsScrollPosition", window.scrollY);
 
@@ -141,29 +123,9 @@ const ProjectsPage = () => {
 					))}
 				</animated.div>
 
-				<animated.div style={projectSectionAnimation}>
-					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
-						Other Projects
-					</h2>
-					<div className="grid md:grid-cols-2 gap-8">
-						{otherProjects.map((project, index) => (
-							<PastProject
-								key={index}
-								project={project}
-								handleNavigate={handleNavigate}
-							/>
-						))}
-					</div>
-				</animated.div>
+				
 			</div>
-			<animated.button
-				style={backToTopAnimation}
-				onClick={scrollToTop}
-				className="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300"
-				aria-label="Back to top"
-			>
-				<FaArrowUp />
-			</animated.button>
+			<BackToTop />
 		</div>
 	);
 };

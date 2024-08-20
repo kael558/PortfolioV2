@@ -47,7 +47,10 @@ const HomePage = () => {
 		sessionStorage.removeItem("homeScrollPosition");
 	}, []);
 
-	const handleNavigate = (project) => {
+	const handleNavigate = (e, project) => {
+		e.preventDefault();
+		e.stopPropagation();
+		
 		// Save the scroll position
 		sessionStorage.setItem("homeScrollPosition", window.scrollY);
 
