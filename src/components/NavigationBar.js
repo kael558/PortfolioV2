@@ -9,7 +9,7 @@ const NavigationBar = () => {
     const currentPath = window.location.pathname;
     const initialPath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
 
-    const [selected, setSelected] = React.useState(initialPath);
+    const [selected, setSelected] = React.useState(initialPath.replace('/', ''));
     const navigate = useNavigate();
 
     const handleNavigate = (path) => {
@@ -17,7 +17,7 @@ const NavigationBar = () => {
         sessionStorage.removeItem("projectsScrollPosition");
         sessionStorage.removeItem("pastProjectsScrollPosition");
 
-        setSelected(path);
+        setSelected(path.replace('/', ''));
         navigate(path);
     }
 
@@ -27,7 +27,7 @@ const NavigationBar = () => {
                 <button
                     to="/"
                     className={`flex items-center space-x-2 text-lg font-medium ${
-                        selected === '/' ? 'text-pink-500' : 'text-gray-300'
+                        selected === '' ? 'text-pink-500' : 'text-gray-300'
                     } hover:text-pink-500 transition-colors duration-300`}
                     onClick={() => handleNavigate('/')}
                 >
@@ -37,7 +37,7 @@ const NavigationBar = () => {
                 <button
                     to="/projects"
                     className={`flex items-center space-x-2 text-lg font-medium ${
-                        selected === '/projects' ? 'text-pink-500' : 'text-gray-300'
+                        selected === 'projects' ? 'text-pink-500' : 'text-gray-300'
                     } hover:text-pink-500 transition-colors duration-300`}
                     onClick={() => handleNavigate('/projects')}
                 >
@@ -47,7 +47,7 @@ const NavigationBar = () => {
                 <button
                     to="/past-projects"
                     className={`flex items-center space-x-2 text-lg font-medium ${
-                        selected === '/past-projects' ? 'text-pink-500' : 'text-gray-300'
+                        selected === 'past-projects' ? 'text-pink-500' : 'text-gray-300'
                     } hover:text-pink-500 transition-colors duration-300`}
                     onClick={() => handleNavigate('/past-projects')}
                 >
@@ -59,7 +59,7 @@ const NavigationBar = () => {
                 <button
                     to="/contact"
                     className={`flex items-center space-x-2 text-lg font-medium ${
-                        selected === '/contact' ? 'text-pink-500' : 'text-gray-300'
+                        selected === 'contact' ? 'text-pink-500' : 'text-gray-300'
                     } hover:text-pink-500 transition-colors duration-300`}
                     onClick={() => handleNavigate('/contact')}
                 >

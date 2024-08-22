@@ -33,11 +33,7 @@ const CurrentProject = ({ project, handleNavigate }) => {
 						</div>
 						<p className="text-gray-400 mb-4">{project.description}</p>
 
-						<div className="flex justify-between items-center mb-2">
-							<span className="text-sm text-gray-400">
-								Looking for: ${project.required_investment.toLocaleString()}
-							</span>
-						</div>
+						
 					</div>
 
 					<div className="mt-auto">

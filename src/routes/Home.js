@@ -16,13 +16,14 @@ const HomePage = () => {
 
 	let [projectsLookingForInvestment, otherProjects] = projects.reduce(
 		(acc, p) => {
-			acc[p.required_investment ? 0 : 1].push(p);
+			acc[(p.percentComplete < 100 && p.percentComplete > 0) ? 0 : 1].push(p);
 			return acc;
 		},
 		[[], []]
 	);
 
-	projectsLookingForInvestment = projectsLookingForInvestment.splice(0, 3);
+	projectsLookingForInvestment = [projects[23], projects[25], projects[24]];
+	//projectsLookingForInvestment = projectsLookingForInvestment.splice(0, 3);
 
 	otherProjects.sort((a, b) => {
 		if (!a.date)
@@ -150,7 +151,7 @@ const HomePage = () => {
 
 				<animated.div style={projectSectionAnimation}>
 					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
-						Current Investment Opportunities
+						Current Projects
 					</h2>
 
 					{trail.map((style, index) => (
