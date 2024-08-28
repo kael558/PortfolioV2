@@ -71,6 +71,11 @@ const Project = () => {
 	const navigate = useNavigate();
 
 	const back = () => {
+		// if there is no previous page, go back to the home page
+		if (!window.history.state) {
+			navigate("/");
+		}
+
 		navigate(-1);
 	};
 
