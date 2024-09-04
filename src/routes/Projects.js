@@ -109,7 +109,7 @@ const ProjectsPage = () => {
 
 				<animated.div style={projectSectionAnimation}>
 					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
-						Current Investment Opportunities
+						Current Projects
 					</h2>
 
 					{trail.map((style, index) => (

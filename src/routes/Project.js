@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate , useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import ProjectData from "../ProjectData";
 import Timeline from "../components/Timeline";
@@ -71,12 +71,11 @@ const Project = () => {
 	const navigate = useNavigate();
 
 	const back = () => {
-		// if there is no previous page, go back to the home page
-		if (!window.history.state) {
-			navigate("/");
+		if (window.history.length > 1) {
+			navigate(-1);
+		} else {
+			navigate("/", { replace: true });
 		}
-
-		navigate(-1);
 	};
 
 	useEffect(() => {

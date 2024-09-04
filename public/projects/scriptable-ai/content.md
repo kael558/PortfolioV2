@@ -56,7 +56,8 @@ ScriptableAI operates as a web application that integrates with various AI voice
 - 2024-08-01 to 2024-08-15: Core platform development
 - 2024-08-15 to 2024-08-25: Integration of AI voice services and audio features
 - 2024-08-25 to 2024-09-01: Testing, debugging, and user interface refinement
-- 2024-09-01: Official launch of ScriptableAI
+- 2024-09-01 to 2024-09-31: Pivot to Video voice-over sync feature
+- 2024-10-01: Public launch
 </Timeline>
 
 ## Business Case
