@@ -33,4 +33,5 @@ The voice assistant is hosted on a Raspberry Pi server, making it both cost-effe
 - 2024-07-30: Integration with extra functionality
 - 2024-08-10 to 2024-08-25: Setting up Raspberry Pi server
 - 2024-08-25 to 2024-08-30: Testing and debugging
+- 2024-09-31: Launched
 </Timeline>
