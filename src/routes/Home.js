@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaCalendar } from "react-icons/fa";
 import { useSpring, animated, config, useTrail } from "react-spring";
 import projects from "../ProjectData";
 import { useNavigate, Link } from "react-router-dom";
@@ -128,6 +128,12 @@ const HomePage = () => {
 							className="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"
 						>
 							<FaLinkedin size={28} />
+						</a>
+						<a
+							href="https://calendly.com/rahel-gunaratne"
+							className="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110"
+						>
+							<FaCalendar size={28} />
 						</a>
 					</div>
 				</animated.div>
