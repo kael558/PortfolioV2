@@ -206,7 +206,7 @@ export default [
         title: "Fluent Future",
         description: "A language learning app for newcomers",
         folder: "fluent-future",
-        percentComplete: 50,
+        percentComplete: 70,
         date: {from: "2024-05"},
         tags: ["Startup"],
         has_project_details: true,

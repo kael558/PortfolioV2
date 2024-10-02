@@ -82,7 +82,7 @@ const Contact = () => {
 			<div className="max-w-3xl mx-auto">
 				<animated.p
 					style={taglineAnimation}
-					className="text-2xl text-center text-gray-300 mb-4 font-light"
+					className="text-2xl text-center text-gray-300 mb-14 font-light"
 				>
 					<span className="">
 						Get in touch with me! I'm looking for collaborators and investors!
@@ -90,9 +90,29 @@ const Contact = () => {
 					</span>
 				</animated.p>
 
+				{/* New section for booking a meeting */}
+				<animated.div style={contactFormAnimation} className="mb-12">
+					<h2 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-6">
+						Book a Meeting
+					</h2>
+					<p className="text-center text-gray-300 mb-6">
+						Want to discuss something in person? Schedule a meeting with me!
+					</p>
+					<div className="text-center">
+						<a
+							href="https://calendly.com/rahel-gunaratne"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-block px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-600 rounded-md hover:from-purple-600 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+						>
+							Schedule a Meeting
+						</a>
+					</div>
+				</animated.div>
+
 				<animated.div style={contactFormAnimation}>
 					<h1 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-12 mt-24">
-						Contact Me
+						Email Me
 					</h1>
 					<form onSubmit={handleSubmit} className="space-y-6">
 						<div>
@@ -147,10 +167,9 @@ const Contact = () => {
 							<button
 								type="submit"
 								className={`w-full px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-pink-600 rounded-md 
-									${
-										isLoading
-											? "opacity-50 cursor-not-allowed"
-											: "hover:from-purple-600 hover:to-pink-700"
+									${isLoading
+										? "opacity-50 cursor-not-allowed"
+										: "hover:from-purple-600 hover:to-pink-700"
 									}
 									 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500`}
 								disabled={isLoading}
