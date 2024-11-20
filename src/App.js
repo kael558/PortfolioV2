@@ -12,22 +12,22 @@ import Footer from './components/Footer';
 
 function App() {
 	return (
-	  <div className="flex flex-col min-h-screen bg-gray-900">
-		<NavigationBar />
-		<main className="flex-grow">
-		  <Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/home" element={<Home />} />
-			<Route path="/projects" element={<Projects />} />
-			<Route path="/project/:title" element={<Project />} />
-			<Route path="/contact" element={<Contact />} />
-			<Route path="/past-projects" element={<PastProjects />} />
-			<Route path="*" element={<Navigate to="/" />} />
-		  </Routes>
-		</main>
-		<Footer />
-	  </div>
+		<div className="flex flex-col min-h-screen bg-gray-900">
+			<NavigationBar />
+			<main className="flex-grow mt-32">
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/home" element={<Home />} />
+					<Route path="/projects" element={<Projects />} />
+					<Route path="/project/:title" element={<Project />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/past-projects" element={<PastProjects />} />
+					<Route path="*" element={<Navigate to="/" />} />
+				</Routes>
+			</main>
+			<Footer />
+		</div>
 	);
-  }
+}
 
 export default App;

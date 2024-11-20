@@ -51,7 +51,7 @@ const HomePage = () => {
 	const handleNavigate = (e, project) => {
 		e.preventDefault();
 		e.stopPropagation();
-		
+
 		// Save the scroll position
 		sessionStorage.setItem("homeScrollPosition", window.scrollY);
 
@@ -170,14 +170,14 @@ const HomePage = () => {
 						</animated.div>
 					))}
 					<div className="mt-8 text-center">
-                    <Link 
-                        to="/projects" 
-                        className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
-                    >
-                        See more 
-                        <span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
-                    </Link>
-                </div>
+						<Link
+							to="/projects"
+							className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+						>
+							See more
+							<span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
+						</Link>
+					</div>
 				</animated.div>
 
 				<animated.div style={projectSectionAnimation}>
@@ -194,14 +194,14 @@ const HomePage = () => {
 						))}
 					</div>
 					<div className="mt-8 text-center">
-                    <Link 
-                        to="/projects" 
-                        className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
-                    >
-                        See more 
-                        <span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
-                    </Link>
-                </div>
+						<Link
+							to="/projects"
+							className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
+						>
+							See more
+							<span className="ml-2 group-hover:ml-3 transition-all duration-300">→</span>
+						</Link>
+					</div>
 				</animated.div>
 			</div>
 		</div>
