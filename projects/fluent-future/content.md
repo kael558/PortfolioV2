@@ -58,9 +58,9 @@ Partnerships with local organizations to offer discounted or free access, ensuri
 - 2024-05-20: Development of core features (roleplay and pronunciation analysis)
 - 2024-06-15: Focus group sessions with SPCO (Social Planning Council of Ottawa)
 - 2024-07-15: MVP development and collaboration with linguistics and teaching experts
-- 2024-09-01: Beta launch of Fluent Future app
-- 2025-10-01: Public launch of Fluent Future app
-- 2025-10-15: Establishment of partnerships with local community centers and organizations
+- 2024-10-01: Beta launch of Fluent Future app
+- 2025-11-01: Public launch of Fluent Future app
+- 2025-11-15: Establishing of partnerships with local community centers and organizations
 </Timeline>
 
 ## Business Case
