@@ -23,7 +23,6 @@ otherProjects.sort((a, b) => {
 	return dateB.localeCompare(dateA);
 });
 
-console.log(projects.filter(p => p.has_project_details).map(p => p.folder));
 
 const PastProjectsPage = () => {
 	const navigate = useNavigate();

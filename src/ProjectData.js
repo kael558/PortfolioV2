@@ -34,6 +34,7 @@ export default [
 		date: { from: "2020-04", to: "2020-05" },
 		tags: ["Startup"]
 	},
+
 	{
 		title: "MineSweeper AI",
 		description: "A deep learning model to predict the next move in a game of MineSweeper",
@@ -57,6 +58,15 @@ export default [
 		percentComplete: 100,
 		date: "2019-12",
 		tags: ["Learning", "Hobby"]
+	},
+	{
+		title: "VizMotion",
+		description: "A tool to generate animations using generative AI",
+		folder: "viz-motion",
+		percentComplete: 100,
+		date: "2024-08",
+		tags: ["Hackathon", "Video"],
+		video: "https://lablab.ai/event/ibm-watsonx-challenge/recallvault/vizmotion"
 	},
 	{
 		title: "Visualizing Diversity",
@@ -199,7 +209,7 @@ export default [
 		title: "Personal AI Assistant",
 		description: "An AI assistant available through calling and texting",
 		folder: "voice-assistant",
-		percentComplete: 80,
+		percentComplete: 100,
 		date: { from: "2024-07" },
 		tags: ["Hobby"],
 		has_project_details: true,
