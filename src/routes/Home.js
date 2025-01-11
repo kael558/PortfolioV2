@@ -14,7 +14,7 @@ const HomePage = () => {
 	const isFirstVisit = useFirstVisit();
 	const navigate = useNavigate();
 
-	let [projectsLookingForInvestment, otherProjects] = projects.reduce(
+	let [currentProjects, otherProjects] = projects.reduce(
 		(acc, p) => {
 			acc[(p.percentComplete < 100 && p.percentComplete > 0) ? 0 : 1].push(p);
 			return acc;
@@ -22,8 +22,8 @@ const HomePage = () => {
 		[[], []]
 	);
 
-	projectsLookingForInvestment = [projects[23], projects[25], projects[24]];
-	//projectsLookingForInvestment = projectsLookingForInvestment.splice(0, 3);
+	//currentProjects = [projects[23], projects[25], projects[24]];
+	currentProjects = currentProjects.splice(0, 3);
 
 	otherProjects.sort((a, b) => {
 		if (!a.date)
@@ -100,7 +100,7 @@ const HomePage = () => {
 		delay: isFirstVisit ? 1200 : 0,
 	});
 
-	const trail = useTrail(projectsLookingForInvestment.length, {
+	const trail = useTrail(currentProjects.length, {
 		to: { opacity: 1, transform: "translateY(0)" },
 		from: isFirstVisit ? { opacity: 0, transform: "translateY(20px)" } : {},
 		config: config.gentle,
@@ -164,7 +164,7 @@ const HomePage = () => {
 						<animated.div key={index} style={style}>
 							<CurrentProject
 								key={index}
-								project={projectsLookingForInvestment[index]}
+								project={currentProjects[index]}
 								handleNavigate={handleNavigate}
 							/>
 						</animated.div>

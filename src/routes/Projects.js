@@ -14,9 +14,9 @@ const ProjectsPage = () => {
 	const navigate = useNavigate();
 
 	const isFirstVisit = useFirstVisit();
-	let [projectsLookingForInvestment, otherProjects] = projects.reduce(
+	let [currentProjects, otherProjects] = projects.reduce(
 		(acc, p) => {
-			acc[p.required_investment ? 0 : 1].push(p);
+			acc[p.percentComplete < 100 ? 0 : 1].push(p);
 			return acc;
 		},
 		[[], []]
@@ -79,7 +79,7 @@ const ProjectsPage = () => {
 		delay: isFirstVisit ? 1200 : 0,
 	});
 
-	const trail = useTrail(projectsLookingForInvestment.length, {
+	const trail = useTrail(currentProjects.length, {
 		to: { opacity: 1, transform: "translateY(0)" },
 		from: isFirstVisit ? { opacity: 0, transform: "translateY(20px)" } : {},
 		config: config.gentle,
@@ -116,14 +116,14 @@ const ProjectsPage = () => {
 						<animated.div key={index} style={style}>
 							<CurrentProject
 								key={index}
-								project={projectsLookingForInvestment[index]}
+								project={currentProjects[index]}
 								handleNavigate={handleNavigate}
 							/>
 						</animated.div>
 					))}
 				</animated.div>
 
-				
+
 			</div>
 			<BackToTop />
 		</div>

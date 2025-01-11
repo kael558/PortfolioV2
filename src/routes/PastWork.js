@@ -8,9 +8,9 @@ import PastProject from "../components/PastProject";
 
 import React, { useEffect, useState } from "react";
 
-let otherProjects = projects.filter((p) => p.date);
-otherProjects.forEach((project, id) => project.id = id);
-otherProjects.sort((a, b) => {
+let pastProjects = projects.filter((p) => p.date && p.percentComplete === 100);
+pastProjects.forEach((project, id) => project.id = id);
+pastProjects.sort((a, b) => {
 	if (!a.date)
 		// if no date is provided, assume it hasn't started yet
 		return 1;
@@ -30,22 +30,22 @@ const PastProjectsPage = () => {
 	const isFirstVisit = useFirstVisit();
 
 	const [filter, setFilter] = useState("All");
-	const [filteredProjects, setFilteredProjects] = useState(otherProjects);
+	const [filteredProjects, setFilteredProjects] = useState(pastProjects);
 
 
 	useEffect(() => {
 		if (filter === "All") {
-			setFilteredProjects(otherProjects);
+			setFilteredProjects(pastProjects);
 		} else {
 			setFilteredProjects(
-				otherProjects.filter((project) => project.tags.includes(filter))
+				pastProjects.filter((project) => project.tags.includes(filter))
 			);
 		}
-	}, [filter, otherProjects]);
+	}, [filter, pastProjects]);
 
 	const uniqueTags = [
 		"All",
-		...new Set(otherProjects.flatMap((project) => project.tags)),
+		...new Set(pastProjects.flatMap((project) => project.tags)),
 	];
 
 	useEffect(() => {
