@@ -34,7 +34,7 @@ const NavigationBar = () => {
 	);
 
 	return (
-		<nav className="bg-gray-800 p-4 fixed left-0 right-0 z-50 border-b border-gray-700 shadow-lg shadow-black/50">
+		<nav className="bg-gray-800 p-4 fixed left-0 right-0 z-50 border-b border-gray-700 shadow-sm shadow-black/50">
 			<div className="mx-auto flex justify-around md:justify-center md:space-x-8">
 				<NavButton path="" icon={<FaHome size={20} />} text="Home" />
 				<NavButton path="projects" icon={<FaProjectDiagram size={20} />} text="Projects" />

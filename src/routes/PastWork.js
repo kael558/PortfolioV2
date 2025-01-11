@@ -8,7 +8,7 @@ import PastProject from "../components/PastProject";
 
 import React, { useEffect, useState } from "react";
 
-let otherProjects = projects.filter((p) => !p.required_investment);
+let otherProjects = projects.filter((p) => p.date);
 otherProjects.forEach((project, id) => project.id = id);
 otherProjects.sort((a, b) => {
 	if (!a.date)
@@ -22,6 +22,8 @@ otherProjects.sort((a, b) => {
 		typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
 	return dateB.localeCompare(dateA);
 });
+
+console.log(projects.filter(p => p.has_project_details).map(p => p.folder));
 
 const PastProjectsPage = () => {
 	const navigate = useNavigate();
@@ -96,7 +98,7 @@ const PastProjectsPage = () => {
 		from: { opacity: 0, transform: "translateY(20px)" },
 		config: config.gentle,
 		delay: (i) => i * 100 + 200, // Staggered delay
-        reset: true
+		reset: true
 	});
 
 	return (
@@ -123,18 +125,17 @@ const PastProjectsPage = () => {
 								<button
 									key={tag}
 									onClick={() => setFilter(tag)}
-									className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-										filter === tag
-											? "bg-purple-600 text-white"
-											: "bg-gray-700 text-gray-300 hover:bg-gray-600"
-									}`}
+									className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === tag
+										? "bg-purple-600 text-white"
+										: "bg-gray-700 text-gray-300 hover:bg-gray-600"
+										}`}
 								>
 									{tag}
 								</button>
 							))}
 						</div>
 					</div>
-					<div  className="grid md:grid-cols-2 gap-8">
+					<div className="grid md:grid-cols-2 gap-8">
 						{trail.map((style, index) => (
 							<animated.div key={filteredProjects[index].id} style={style}>
 								<PastProject

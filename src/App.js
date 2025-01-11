@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import Home from "./routes/Home";
 import Project from "./routes/Project";
@@ -11,6 +12,26 @@ import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 
 function App() {
+	useEffect(() => {
+		const handleBeforeInstallPrompt = (event) => {
+			// Prevent the mini-infobar or prompt from showing
+			event.preventDefault();
+			console.log("Install prompt prevented");
+
+			// Optionally, you can save the event for manual use later
+			// window.deferredPrompt = event;
+		};
+
+		// Add an event listener for the beforeinstallprompt event
+		window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+
+		// Cleanup the event listener on unmount
+		return () => {
+			window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+		};
+	}, []);
+
+
 	return (
 		<div className="flex flex-col min-h-screen bg-gray-900">
 			<NavigationBar />

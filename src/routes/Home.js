@@ -182,7 +182,7 @@ const HomePage = () => {
 
 				<animated.div style={projectSectionAnimation}>
 					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
-						Other Projects
+						Past Projects
 					</h2>
 					<div className="grid md:grid-cols-2 gap-8">
 						{otherProjects.map((project, index) => (
@@ -195,7 +195,7 @@ const HomePage = () => {
 					</div>
 					<div className="mt-8 text-center">
 						<Link
-							to="/projects"
+							to="/past-projects"
 							className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-300 group"
 						>
 							See more
