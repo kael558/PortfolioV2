@@ -111,7 +111,7 @@ const Project = () => {
 	return (
 		<div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-gray-100 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-4xl mx-auto">
-				<div className="fixed top-20 left-6 z-10">
+				<div className="fixed top-20 md:top-3 left-6 z-50">
 					<button
 						className="flex items-center text-pink-400 hover:text-pink-300 transition-colors duration-300 bg-gray-900 bg-opacity-75 rounded-full py-2 px-4"
 						onClick={back}

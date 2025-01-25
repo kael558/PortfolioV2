@@ -32,6 +32,32 @@ const PastProjectsPage = () => {
 	const [filter, setFilter] = useState("All");
 	const [filteredProjects, setFilteredProjects] = useState(pastProjects);
 
+	if (filter === "Hackathon" || filter === "Video") {
+		pastProjects.sort((a, b) => {
+			if (!a.date)
+				// if no date is provided, assume it hasn't started yet
+				return 1;
+			if (!b.date) return -1;
+
+			// Sort by Placement (its a string)
+			if (a.placement && !b.placement) return -1;
+			if (b.placement && !a.placement) return 1;
+			if (a.placement && b.placement) {
+				if (a.placement === b.placement) {
+					return 0;
+				}
+				return a.placement < b.placement ? -1 : 1;
+			}
+
+			const dateA =
+				typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
+			const dateB =
+				typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
+			return dateB.localeCompare(dateA);
+		});
+
+	}
+
 
 	useEffect(() => {
 		if (filter === "All") {
@@ -105,26 +131,26 @@ const PastProjectsPage = () => {
 			<div className="max-w-5xl mx-auto">
 				<animated.p
 					style={taglineAnimation}
-					className="text-2xl text-center text-gray-300 mb-4 font-light"
+					className="text-lg md:text-2xl text-center text-gray-300 mb-4 font-light"
 				>
 					<span className="">
 						I've worked on a lot of projects ranging from Data Science & AI to
-						Web Development. Here are some of the projects I've worked on.
+						Web Development. Here are some of them.
 					</span>
 				</animated.p>
 
 				<animated.div style={projectSectionAnimation}>
-					<h2 className="text-3xl font-bold mt-12 mb-8 text-gray-100">
+					<h2 className="text-2xl md:text-3xl font-bold mt-12 mb-4 md:mb-8 text-gray-100">
 						Past Work
 					</h2>
 					<div className="mb-8">
-						<h3 className="text-xl font-semibold mb-4">Filter by:</h3>
+						<h3 className="text-base md:text-xl font-semibold mb-4">Filter by:</h3>
 						<div className="flex flex-wrap gap-2">
 							{uniqueTags.map((tag) => (
 								<button
 									key={tag}
 									onClick={() => setFilter(tag)}
-									className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${filter === tag
+									className={`px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-colors duration-200 ${filter === tag
 										? "bg-purple-600 text-white"
 										: "bg-gray-700 text-gray-300 hover:bg-gray-600"
 										}`}

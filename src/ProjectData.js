@@ -66,7 +66,8 @@ export default [
 		percentComplete: 100,
 		date: "2024-08",
 		tags: ["Hackathon", "Video"],
-		video: "https://lablab.ai/event/ibm-watsonx-challenge/recallvault/vizmotion"
+		video: "https://lablab.ai/event/ibm-watsonx-challenge/recallvault/vizmotion",
+		placement: "4th Place"
 	},
 	{
 		title: "Visualizing Diversity",
@@ -87,7 +88,8 @@ export default [
 		date: "2022-10",
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
-		video: "https://lablab.ai/event/transforming-with-transformers/hummingbirds/Research%20Paper%20Clustering"
+		video: "https://lablab.ai/event/transforming-with-transformers/hummingbirds/Research%20Paper%20Clustering",
+		placement: "1st Place"
 
 	},
 	{
@@ -98,7 +100,8 @@ export default [
 		date: "2022-11",
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
-		video: "https://lablab.ai/event/stable-diffusion-hackathon/Fast%20Path/Stable%20Diffusion%20Creator%20Tool"
+		video: "https://lablab.ai/event/stable-diffusion-hackathon/Fast%20Path/Stable%20Diffusion%20Creator%20Tool",
+		placement: "1st Place"
 	},
 	{
 		title: "Automated Annotations with Zero-shot Learning",
@@ -117,7 +120,8 @@ export default [
 		date: "2023-01",
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
-		video: "https://lablab.ai/event/ai21-labs-hackathon/olympia/webindexer"
+		video: "https://lablab.ai/event/ai21-labs-hackathon/olympia/webindexer",
+		placement: "1st Place"
 	},
 	{
 		title: "Language Learner",
@@ -127,6 +131,7 @@ export default [
 		date: "2023-07",
 		tags: ["Hackathon", "Video"],
 		video: "https://lablab.ai/event/eleven-labs-ai-hackathon/phomemes/languagelearner"
+
 	},
 	{
 		title: "NavBot",
@@ -136,6 +141,16 @@ export default [
 		date: "2023-03",
 		tags: ["Hackathon", "Video"],
 		video: "https://devpost.com/software/navbot-q3b8k2"
+	},
+	{
+		title: "SmartyPants UI Hackathon",
+		description: "Accelerating front-end development with an integrated environment and AI",
+		folder: "smartypants-ui",
+		percentComplete: 100,
+		date: "2024-07",
+		tags: ["Hackathon", "Video"],
+		video: "https://lablab.ai/event/langflow-hackathon/smartypants-ui/smarty-pants-ui",
+		placement: "4th Place"
 	},
 	{
 		title: "Car Retailer ChatBot",
@@ -203,7 +218,8 @@ export default [
 		folder: "simplechain",
 		percentComplete: 80,
 		date: { from: "2023-07" },
-		tags: ["Hobby"]
+		tags: ["Hobby"],
+		deferred: true,
 	},
 	{
 		title: "Personal AI Assistant",
@@ -237,6 +253,7 @@ export default [
 		tags: ["Startup"],
 		has_project_details: true,
 		required_investment: 5000,
+		deferred: true,
 	},
 	{
 		title: "SmartyPants UI",
@@ -247,6 +264,8 @@ export default [
 		tags: ["Startup"],
 		has_project_details: true,
 		required_investment: 10000,
+		deferred: true,
+
 	},
 	{
 		title: "ScriptableAI",
@@ -256,6 +275,7 @@ export default [
 		date: { from: "2024-07" },
 		tags: ["Startup"],
 		has_project_details: true,
+		deferred: true,
 	},
 	{
 		title: "Viona Companion",
@@ -263,7 +283,8 @@ export default [
 		folder: "viona",
 		percentComplete: 10,
 		date: { from: "2024-07" },
-		tags: ["Startup"]
+		tags: ["Startup"],
+		deferred: true,
 	},
 	{
 		title: "Feedback Form JS package",

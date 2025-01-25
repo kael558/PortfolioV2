@@ -24,6 +24,7 @@ const HomePage = () => {
 
 	//currentProjects = [projects[23], projects[25], projects[24]];
 	currentProjects = currentProjects.splice(0, 3);
+	currentProjects = [currentProjects[1], currentProjects[0], currentProjects[2]];
 
 	otherProjects.sort((a, b) => {
 		if (!a.date)
@@ -140,19 +141,23 @@ const HomePage = () => {
 
 				<animated.p
 					style={taglineAnimation}
-					className="text-2xl text-center text-gray-300 mb-4 font-light"
+					className="text-xl md:text-2xl text-center text-gray-300 mb-4 font-light"
 				>
-					I create and sell{" "}
-					<span className="text-purple-400 font-normal">SaaS</span> and{" "}
-					<span className="text-pink-400 font-normal">AI products</span>.
-					<br /> <br />
+
 					<span className="">
-						I'm a Software Engineering graduate with high distinction, holding
-						minors in Computer Science and Physics. I've won 3 Generative AI
-						Hackathons and have over 2 years of experience as a Software/AI
-						contractor. Currently, I'm focused on entrepreneurship, with two
-						product launches and more in the pipeline.
+						Hi, I’m Rahel—a Software Engineering graduate with <span className="text-purple-400 font-normal">high distinction</span>,
+						complemented by minors in <span className="text-purple-400 font-normal">Computer Science</span> and <span className="text-purple-400 font-normal">Physics</span>.
+						I also bring hands-on experience in <span className="text-pink-400 font-normal">Data Science</span>.
+						<br /> <br />
+						I’m a <span className="text-purple-400 font-normal">quick learner</span> who thrives on exploring diverse projects and collaborating with others to
+						solve meaningful problems. My passion lies in leveraging <span className="text-pink-400 font-normal">data, machine learning, and software </span>
+						to create impactful solutions.
+						<br /> <br />
+						I’m proud to have <span className="text-pink-400 font-normal">won 5 AI Hackathons</span> and to have gained over
+						<span className="text-pink-400 font-normal"> 2 years of experience</span> working as a Software/AI contractor. Let’s connect and make a difference together!
 					</span>
+
+
 				</animated.p>
 
 				<animated.div style={projectSectionAnimation}>

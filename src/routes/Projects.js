@@ -14,7 +14,7 @@ const ProjectsPage = () => {
 	const navigate = useNavigate();
 
 	const isFirstVisit = useFirstVisit();
-	let [currentProjects, otherProjects] = projects.reduce(
+	let [currentProjects, _] = projects.reduce(
 		(acc, p) => {
 			acc[p.percentComplete < 100 ? 0 : 1].push(p);
 			return acc;
@@ -22,18 +22,30 @@ const ProjectsPage = () => {
 		[[], []]
 	);
 
-	otherProjects.sort((a, b) => {
-		if (!a.date)
-			// if no date is provided, assume it hasn't started yet
-			return 1;
+
+	currentProjects.sort((a, b) => {
+		// Future projects (percentComplete = 0) go last
+		if (a.percentComplete === 0 && b.percentComplete !== 0) return 1;
+		if (b.percentComplete === 0 && a.percentComplete !== 0) return -1;
+
+		// Deferred projects (has property `deferred`) go second last
+		if (a.deferred && !b.deferred) return 1;
+		if (b.deferred && !a.deferred) return -1;
+
+		// Sort by percent complete (higher percentComplete first)
+		if (a.percentComplete !== b.percentComplete) {
+			return b.percentComplete - a.percentComplete;
+		}
+
+		// If all else is equal, sort by date
+		if (!a.date) return 1; // No date means project hasn't started yet
 		if (!b.date) return -1;
 
-		const dateA =
-			typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
-		const dateB =
-			typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
-		return dateB.localeCompare(dateA);
+		const dateA = typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
+		const dateB = typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
+		return dateB.localeCompare(dateA); // Later dates come first
 	});
+
 
 	useEffect(() => {
 		const savedScrollPosition = sessionStorage.getItem(
@@ -91,24 +103,19 @@ const ProjectsPage = () => {
 			<div className="max-w-5xl mx-auto">
 				<animated.p
 					style={taglineAnimation}
-					className="text-2xl text-center text-gray-300 mb-4 font-light"
+					className="text-lg md:text-2xl text-center text-gray-300 mb-4 font-light"
 				>
 					<span className="">
-						Fluent Future is a language learning app for newcomers to Canada. It
+						I love to work on projects in my spare time. I am currently working on a
+						language learning app called "Fluent Future" for newcomers to Canada. It
 						features pronunciation analysis, roleplay scenarios, and
-						personalized learning pathways. We are currently developing the MVP
-						and testing with our focus groups in Ottawa. I am looking for
-						investors to speed up the development of this app.
-						<br /> <br />I am also creating a suite of developer tools targeted
-						at the emerging market of non-technical developers. As generative AI
-						becomes more accessible, I believe these tools will be essential for
-						the next generation of developers. I am looking for investors to
-						help speed up the development of these tools.
+						an AI tutor. I am currently developing the MVP
+						and testing with our focus groups in Ottawa.
 					</span>
 				</animated.p>
 
 				<animated.div style={projectSectionAnimation}>
-					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
+					<h2 className="text-2xl md:text-3xl font-bold mt-16 mb-8 text-gray-100">
 						Current Projects
 					</h2>
 

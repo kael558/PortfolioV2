@@ -4,9 +4,8 @@ import { formatDateRange, getProgressBarColor } from "../Utils";
 const CurrentProject = ({ project, handleNavigate }) => {
 	return (
 		<div
-			className={`bg-gray-800 rounded-lg p-6 mb-8 transform transition duration-200 hover:scale-105 hover:shadow-2xl ${
-				project.has_project_details ? "cursor-pointer" : ""
-			}`}
+			className={`bg-gray-800 rounded-lg p-6 mb-8 transform transition duration-200 hover:scale-105 hover:shadow-2xl ${project.has_project_details ? "cursor-pointer" : ""
+				}`}
 			onClick={(e) => project.has_project_details && handleNavigate(e, project)}
 		>
 			<div className="flex flex-col md:flex-row h-full">
@@ -18,28 +17,28 @@ const CurrentProject = ({ project, handleNavigate }) => {
 				<div className="flex-1 flex flex-col justify-between">
 					<div>
 						<div className="flex justify-between items-center mb-2">
-							<h3 className="text-2xl font-semibold text-purple-300 tracking-wide">
+							<h3 className="text-lg md:text-2xl font-semibold text-purple-300 tracking-wide">
 								{project.title}
 							</h3>
 							{project.has_project_details && (
 								<button
 									onClick={(e) => handleNavigate(e, project)}
-									className="text-pink-400 hover:text-pink-300 transition-colors duration-300"
+									className="text-sm md:text-base text-pink-400 hover:text-pink-300 transition-colors duration-300"
 								>
 									View More Details{" "}
 									<FaExternalLinkAlt className="inline ml-1" />
 								</button>
 							)}
 						</div>
-						<p className="text-gray-400 mb-4">{project.description}</p>
+						<p className="text-sm md:text-base text-gray-400 mb-4">{project.description}</p>
 
-						
+
 					</div>
 
 					<div className="mt-auto">
 						{project.percentComplete === 0 ? (
 							<div className="text-sm text-yellow-400 font-semibold">
-								Upcoming Project
+								Future Project
 							</div>
 						) : (
 							<>
@@ -53,14 +52,21 @@ const CurrentProject = ({ project, handleNavigate }) => {
 								</div>
 
 								<div className="flex justify-between items-center">
-									<span
-										className={`text-sm ${getProgressBarColor(
-											project.percentComplete
-										)}`}
-									>
-										{project.percentComplete}% Complete
-									</span>
-									<span className="text-sm text-gray-400">
+									<div className="flex items-center gap-2">
+										<span
+											className={`text-xs md:text-sm ${project.deferred ? 'line-through' : ''} ${getProgressBarColor(
+												project.percentComplete
+											)}`}
+										>
+											{project.percentComplete}% Complete
+										</span>
+										{project.deferred && (
+											<span className="text-xs px-2 py-0.5 bg-gray-700 text-gray-300 rounded">
+												Deferred
+											</span>
+										)}
+									</div>
+									<span className="text-xs md:text-sm text-gray-400">
 										{formatDateRange(project.date)}
 									</span>
 								</div>

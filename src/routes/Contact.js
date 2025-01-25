@@ -85,7 +85,7 @@ const Contact = () => {
 					className="text-2xl text-center text-gray-300 mb-14 font-light"
 				>
 					<span className="">
-						Get in touch with me! I'm looking for collaborators and investors!
+						Get in touch with me! I'm looking for collaborators!
 						Or if you just want to say hi, feel free to drop me a message.
 					</span>
 				</animated.p>
