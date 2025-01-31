@@ -108,6 +108,26 @@ const HomePage = () => {
 		delay: 200,
 	});
 
+	const Section = ({ children, delay }) => {
+		const animation = useSpring({
+			opacity: 1,
+			transform: 'translateY(0)',
+			from: {
+				opacity: 0,
+				transform: 'translateY(20px)'
+			},
+
+			delay: delay,
+		});
+
+		return (
+			<animated.div style={animation}>
+				{children}
+			</animated.div>
+		);
+	};
+
+
 	return (
 		<div className="min-h-screen bg-gray-900 text-gray-100 pb-12 px-4 sm:px-6 lg:px-8">
 			<div className="max-w-5xl mx-auto">
@@ -140,26 +160,52 @@ const HomePage = () => {
 				</animated.div>
 
 				<animated.p
-					style={taglineAnimation}
-					className="text-xl md:text-2xl text-center text-gray-300 mb-4 font-light"
+					className="text-xl md:text-2xl text-gray-300 mb-4 font-light leading-relaxed"
 				>
+					<span className="space-y-6">
+						<Section delay={100}>
+							Hi, I'm Rahel—a Software Engineering graduate with high distinction,
+							with minors in Computer Science and Physics. My expertise spans AI, data science, and full-stack development.
+							For the past 2 years, I've worked as a software developer taking on various contracts.
+						</Section>
+						<Section delay={200}>
+							At the City of Ottawa, I specialized in data analytics and developed and sold
+							a <a href="/#/project/automated-data-wrangling-pipeline" className="text-purple-400 hover:underline transition-all">data wrangling pipeline</a> saving significant time. Under the guidance of a supervisor, I also contributed to academic research,
+							creating <a href="/#/project/visualizing-diversity" className="text-purple-400 hover:underline transition-all">impactful visualizations</a> focused on equity and diversity metrics.
+						</Section>
 
-					<span className="">
-						Hi, I’m Rahel—a Software Engineering graduate with <span className="text-purple-400 font-normal">high distinction</span>,
-						complemented by minors in <span className="text-purple-400 font-normal">Computer Science</span> and <span className="text-purple-400 font-normal">Physics</span>.
-						I also bring hands-on experience in <span className="text-pink-400 font-normal">Data Science</span>.
-						<br /> <br />
-						I’m a <span className="text-purple-400 font-normal">quick learner</span> who thrives on exploring diverse projects and collaborating with others to
-						solve meaningful problems. My passion lies in leveraging <span className="text-pink-400 font-normal">data, machine learning, and software </span>
-						to create impactful solutions.
-						<br /> <br />
-						I’m proud to have <span className="text-pink-400 font-normal">won 5 AI Hackathons</span> and to have gained over
-						<span className="text-pink-400 font-normal"> 2 years of experience</span> working as a Software/AI contractor. Let’s connect and make a difference together!
+						<Section delay={280}>
+							I've won 5 AI hackathons, including those by {" "}
+							<a href="/#/project/semantic-clustering-%26-searching-research-papers" className="text-purple-400 hover:underline transition-all">Cohere</a>,
+							IBM, and {" "}
+							<a href="/#/project/web-indexer" className="text-purple-400 hover:underline transition-all">AI21 Labs</a>.
+							I also worked at an <a href="https://www.moemate.io/" className="text-purple-400 hover:underline transition-all">AI startup</a> as a full-stack developer, from early-stage development to launch.
+						</Section>
+
+						<Section delay={360}>
+							Then I went on to launching some of my own projects within the last year including:
+							<ul className="ml-4 mt-2">
+								<li>
+									PixPal
+									{" "}— A 3D desktop AI companion for Windows and Mac
+								</li>
+								<li>
+									<a href="/#/project/pixpal-website" className="text-pink-400 hover:underline transition-all">PixPal Website</a>
+									{" "}— A roleplay-focused auditory experience web application
+								</li>
+								<li>
+									<a href="webindexer.app" className="text-pink-400 hover:underline transition-all">Web Indexer</a>
+									{" "}— An AI chatbot tool for websites reducing customer queries by 80% and increasing conversion by 30%
+								</li>
+							</ul>
+						</Section>
+
+						<Section delay={420}>
+							Currently, I'm developing a <a href="/#/project/fluent-future" className="text-purple-400 hover:underline transition-all">language learning platform</a> for Ottawa newcomers,
+							informed by community feedback and real user needs.
+						</Section>
 					</span>
-
-
 				</animated.p>
-
 				<animated.div style={projectSectionAnimation}>
 					<h2 className="text-3xl font-bold mt-16 mb-8 text-gray-100">
 						Current Projects

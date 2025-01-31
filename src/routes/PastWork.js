@@ -32,14 +32,15 @@ const PastProjectsPage = () => {
 	const [filter, setFilter] = useState("All");
 	const [filteredProjects, setFilteredProjects] = useState(pastProjects);
 
-	if (filter === "Hackathon" || filter === "Video") {
-		pastProjects.sort((a, b) => {
-			if (!a.date)
-				// if no date is provided, assume it hasn't started yet
-				return 1;
-			if (!b.date) return -1;
 
-			// Sort by Placement (its a string)
+	pastProjects.sort((a, b) => {
+		if (!a.date)
+			// if no date is provided, assume it hasn't started yet
+			return 1;
+		if (!b.date) return -1;
+
+		// Sort by Placement (its a string)
+		if (filter === "Hackathon" || filter === "Video") {
 			if (a.placement && !b.placement) return -1;
 			if (b.placement && !a.placement) return 1;
 			if (a.placement && b.placement) {
@@ -48,15 +49,15 @@ const PastProjectsPage = () => {
 				}
 				return a.placement < b.placement ? -1 : 1;
 			}
+		}
 
-			const dateA =
-				typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
-			const dateB =
-				typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
-			return dateB.localeCompare(dateA);
-		});
+		const dateA =
+			typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
+		const dateB =
+			typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
+		return dateB.localeCompare(dateA);
+	});
 
-	}
 
 
 	useEffect(() => {
@@ -69,10 +70,11 @@ const PastProjectsPage = () => {
 		}
 	}, [filter, pastProjects]);
 
-	const uniqueTags = [
-		"All",
-		...new Set(pastProjects.flatMap((project) => project.tags)),
-	];
+	const uniqueTags = [...new Set(pastProjects.flatMap((project) => project.tags))];
+
+	uniqueTags.sort();
+	uniqueTags.unshift("All");
+
 
 	useEffect(() => {
 		const savedScrollPosition = sessionStorage.getItem(
@@ -80,6 +82,8 @@ const PastProjectsPage = () => {
 		);
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
+		} else {
+			window.scrollTo(0, 0);
 		}
 		sessionStorage.removeItem("pastProjectsScrollPosition");
 	}, []);
@@ -122,7 +126,7 @@ const PastProjectsPage = () => {
 		to: { opacity: 1, transform: "translateY(0)" },
 		from: { opacity: 0, transform: "translateY(20px)" },
 		config: config.gentle,
-		delay: (i) => i * 100 + 200, // Staggered delay
+		delay: (i) => i * 50 + 200, // Staggered delay
 		reset: true
 	});
 

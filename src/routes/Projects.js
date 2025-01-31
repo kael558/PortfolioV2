@@ -53,6 +53,8 @@ const ProjectsPage = () => {
 		);
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
+		} else {
+			window.scrollTo(0, 0);
 		}
 		sessionStorage.removeItem("projectsScrollPosition");
 	}, []);
@@ -95,7 +97,7 @@ const ProjectsPage = () => {
 		to: { opacity: 1, transform: "translateY(0)" },
 		from: isFirstVisit ? { opacity: 0, transform: "translateY(20px)" } : {},
 		config: config.gentle,
-		delay: 200,
+		delay: 100,
 	});
 
 	return (
@@ -110,7 +112,7 @@ const ProjectsPage = () => {
 						language learning app called "Fluent Future" for newcomers to Canada. It
 						features pronunciation analysis, roleplay scenarios, and
 						an AI tutor. I am currently developing the MVP
-						and testing with our focus groups in Ottawa.
+						and testing it with focus groups in Ottawa.
 					</span>
 				</animated.p>
 
