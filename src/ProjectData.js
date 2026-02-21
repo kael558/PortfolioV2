@@ -324,8 +324,9 @@ export default [
 		folder: "genpage",
 		percentComplete: 100,
 		date: { from: "2025-07", to: "2025-12" },
-		tags: ["Startup", "Hobby"],
+		tags: ["Startup", "Launched"],
 		has_project_details: true,
+		link: "https://genpage.art",
 	},
 	{
 		title: "HackerHouse Discord Bot",
@@ -366,7 +367,7 @@ export default [
 		folder: "pitchtank",
 		percentComplete: 100,
 		date: "2025-10",
-		tags: ["Startup", "Event"],
+		tags: ["Startup", "Event", "Launched"],
 		has_project_details: true,
 		link: "https://www.pitchtank.app/",
 	},
@@ -389,6 +390,17 @@ export default [
 		date: { from: "2025" },
 		tags: ["Startup", "Hobby"],
 		has_project_details: true,
+	},
+	{
+		title: "VC in a Box",
+		description:
+			"AI platform for founders to practice investment conversations. Go from level Mom to VC in 5 levels—you have to pass each level to progress. AI investors that speak and think like real VCs.",
+		folder: "vc-in-a-box",
+		percentComplete: 100,
+		date: "2025-12",
+		tags: ["Hackathon"],
+		has_project_details: true,
+		placement: "1st Place",
 	},
 	{
 		title: "Personal Knowledge Management System",

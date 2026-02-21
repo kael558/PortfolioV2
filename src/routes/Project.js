@@ -11,67 +11,97 @@ import { formatDateRange, getTagColor } from "../Utils";
 
 const MarkdownComponents = {
 	h1: ({ children }) => (
-		<h1 className="text-3xl md:text-4xl font-bold mb-6 text-purple-300 border-b-2 border-purple-500/50 pb-3 tracking-wide">
+		<h1 className="text-3xl md:text-4xl font-bold mt-8 mb-6 text-gray-100 leading-tight">
 			{children}
 		</h1>
 	),
 	h2: ({ children }) => (
-		<h2 className="text-2xl md:text-3xl font-semibold mt-12 mb-4 text-pink-400 tracking-wide">
+		<h2 className="text-2xl md:text-3xl font-semibold mt-14 mb-5 text-gray-100 leading-snug">
 			{children}
 		</h2>
 	),
 	h3: ({ children }) => (
-		<h3 className="text-xl md:text-2xl font-semibold mb-3 text-purple-300">
+		<h3 className="text-xl md:text-2xl font-semibold mt-8 mb-3 text-gray-200">
 			{children}
 		</h3>
 	),
 	p: ({ children }) => (
-		<p className="text-gray-300 leading-relaxed mb-4 tracking-wide">
+		<p className="text-gray-300 leading-[1.8] mb-5 text-[16px] md:text-[17px]">
 			{children}
 		</p>
 	),
 	ul: ({ children }) => (
-		<ul className="list-disc list-inside mb-4 text-gray-300 space-y-1">
+		<ul className="list-disc pl-6 mb-5 text-gray-300 space-y-2 leading-[1.8]">
 			{children}
 		</ul>
 	),
 	ol: ({ children }) => (
-		<ol className="list-decimal list-inside mb-4 text-gray-300 space-y-1">
+		<ol className="list-decimal pl-6 mb-5 text-gray-300 space-y-2 leading-[1.8]">
 			{children}
 		</ol>
 	),
-	li: ({ children }) => <li className="mb-1">{children}</li>,
+	li: ({ children }) => <li className="pl-1">{children}</li>,
 	a: ({ href, children }) => (
 		<a
 			href={href}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="text-pink-400 hover:text-pink-300 underline underline-offset-2 transition-colors duration-300"
+			className="text-purple-400 hover:text-purple-300 underline decoration-purple-400/40 underline-offset-2 transition-colors duration-200"
 		>
 			{children}
 		</a>
 	),
+	strong: ({ children }) => (
+		<strong className="text-gray-100 font-semibold">{children}</strong>
+	),
+	em: ({ children }) => (
+		<em className="text-gray-200 italic">{children}</em>
+	),
+	blockquote: ({ children }) => (
+		<blockquote className="border-l-4 border-purple-500/60 pl-5 my-6 text-gray-400 italic">
+			{children}
+		</blockquote>
+	),
+	hr: () => (
+		<hr className="border-gray-700/50 my-10" />
+	),
 	code: ({ children }) => (
-		<code className="bg-gray-800/80 text-pink-300 px-2 py-1 rounded text-sm">
+		<code className="bg-gray-800 text-purple-300 px-1.5 py-0.5 rounded text-sm font-mono">
 			{children}
 		</code>
 	),
 	pre: ({ children }) => (
-		<pre className="bg-gray-800/80 text-gray-300 p-4 rounded-xl overflow-x-auto mb-4 border border-gray-700/50">
+		<pre className="bg-gray-800 text-gray-300 p-5 rounded-lg overflow-x-auto mb-5 text-sm font-mono leading-relaxed">
 			{children}
 		</pre>
+	),
+	img: ({ src, alt }) => (
+		<figure className="my-8">
+			<img
+				src={src}
+				alt={alt}
+				className="w-full rounded-lg"
+			/>
+			{alt && (
+				<figcaption className="text-center text-sm text-gray-500 mt-3 italic">
+					{alt}
+				</figcaption>
+			)}
+		</figure>
 	),
 	timeline: Timeline,
 	audio: AudioPlayer,
 	people: People,
 	video: ({ src, controls = true }) => (
-		<video
-			src={src}
-			controls={controls}
-			className="w-full rounded-xl mb-4 border border-gray-700/50 shadow-lg"
-		>
-			Your browser does not support the video tag.
-		</video>
+		<div className="my-8">
+			<video
+				src={src}
+				controls={controls}
+				className="w-full rounded-lg"
+			>
+				Your browser does not support the video tag.
+			</video>
+		</div>
 	),
 };
 
@@ -134,9 +164,9 @@ const Project = () => {
 					</h1>
 					<button
 						onClick={() => navigate("/")}
-						className="text-pink-400 hover:text-pink-300 transition-colors"
+						className="text-purple-400 hover:text-purple-300 transition-colors"
 					>
-						← Back to Home
+						&larr; Back to Home
 					</button>
 				</div>
 			</div>
@@ -144,65 +174,71 @@ const Project = () => {
 	}
 
 	const hasMarkdownContent = markdownContent.trim().length > 0;
+	const hasLinks = projectData.link || projectData.video || projectData.github;
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-black text-gray-100">
-			{/* Back button - fixed */}
+		<div className="min-h-screen bg-gray-900 text-gray-100">
+			{/* Back button */}
 			<div className="fixed top-20 md:top-4 left-4 md:left-6 z-50">
 				<button
-					className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 text-pink-400 hover:text-pink-300 hover:bg-gray-700/90 transition-all duration-300 shadow-lg"
+					className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-gray-800/95 backdrop-blur-sm text-gray-300 hover:text-white transition-all duration-200 text-sm shadow-md border border-gray-700/60"
 					onClick={back}
 				>
-					<FaArrowLeft className="text-sm" /> Back
+					<FaArrowLeft className="text-xs" /> Back
 				</button>
 			</div>
 
-			{/* Hero section */}
-			<div className="relative overflow-hidden">
-				<div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20" />
-				<div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32 pb-12">
-					<h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-400 to-purple-300 mb-4 tracking-tight">
+			{/* Article */}
+			<article className="max-w-3xl mx-auto px-5 sm:px-8 pt-24 md:pt-28 pb-24">
+				{/* Header area */}
+				<header className="mb-10">
+					{/* Tags */}
+					{projectData.tags && projectData.tags.length > 0 && (
+						<div className="flex flex-wrap items-center gap-2 mb-5">
+							{projectData.tags.map((tag, i) => (
+								<span
+									key={i}
+									className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${getTagColor(tag)}`}
+								>
+									{tag}
+								</span>
+							))}
+							{projectData.placement && (
+								<span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-yellow-500/90 text-gray-900">
+									{projectData.placement}
+								</span>
+							)}
+						</div>
+					)}
+
+					{/* Title */}
+					<h1 className="text-4xl md:text-5xl font-bold text-gray-50 leading-tight mb-4">
 						{projectData.title}
 					</h1>
-					<p className="text-lg md:text-xl text-gray-400 mb-6 max-w-2xl leading-relaxed">
+
+					{/* Description */}
+					<p className="text-lg text-gray-400 leading-relaxed mb-5">
 						{projectData.description}
 					</p>
 
-					{/* Meta row */}
-					<div className="flex flex-wrap items-center gap-3 mb-6">
-						{projectData.date && (
-							<span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-800/80 text-gray-300 border border-gray-700/50">
-								{formatDateRange(projectData.date)}
-							</span>
-						)}
-						{projectData.tags?.map((tag, i) => (
-							<span
-								key={i}
-								className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getTagColor(
-									tag
-								)}`}
-							>
-								{tag}
-							</span>
-						))}
-						{projectData.placement && (
-							<span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-gradient-to-r from-yellow-500/80 to-amber-600/80 text-white font-semibold">
-								{projectData.placement}
-							</span>
-						)}
-					</div>
+					{/* Date */}
+					{projectData.date && (
+						<p className="text-sm text-gray-500 mb-6">
+							{formatDateRange(projectData.date)}
+						</p>
+					)}
 
-					{/* External links */}
-					{(projectData.link || projectData.video) && (
-						<div className="flex flex-wrap gap-3">
+					{/* Links */}
+					{hasLinks && (
+						<div className="flex flex-wrap items-center gap-3 pb-2">
 							{projectData.link && (
 								<a
 									href={projectData.link}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-pink-500/20 text-pink-400 hover:bg-pink-500/30 border border-pink-500/30 transition-colors"
+									className="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors"
 								>
-									<FaExternalLinkAlt /> Visit Project
+									<FaExternalLinkAlt className="text-xs" /> Visit Project
 								</a>
 							)}
 							{projectData.video && (
@@ -210,9 +246,9 @@ const Project = () => {
 									href={projectData.video}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-500/20 text-purple-400 hover:bg-purple-500/30 border border-purple-500/30 transition-colors"
+									className="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors"
 								>
-									Watch Video
+									<FaExternalLinkAlt className="text-xs" /> Watch Video
 								</a>
 							)}
 							{projectData.github && (
@@ -220,22 +256,23 @@ const Project = () => {
 									href={projectData.github}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 border border-gray-600 transition-colors"
+									className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-300 transition-colors"
 								>
 									<FaGithub /> Source Code
 								</a>
 							)}
 						</div>
 					)}
-				</div>
-			</div>
 
-			{/* Content area */}
-			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+					{/* Divider */}
+					<hr className="border-gray-800 mt-6" />
+				</header>
+
+				{/* Markdown body */}
 				{contentLoaded && (
 					<>
 						{hasMarkdownContent ? (
-							<div className="prose-content rounded-2xl p-6 md:p-8 bg-gray-900/50 border border-gray-800/50 shadow-xl">
+							<div className="article-body">
 								<ReactMarkdown
 									components={MarkdownComponents}
 									rehypePlugins={[rehypeRaw]}
@@ -244,16 +281,13 @@ const Project = () => {
 								</ReactMarkdown>
 							</div>
 						) : (
-							<div className="rounded-2xl p-6 md:p-8 bg-gray-900/50 border border-gray-800/50">
-								<p className="text-gray-400 italic">
-									Detailed project documentation coming soon. In the meantime,
-									check out the links above to learn more.
-								</p>
-							</div>
+							<p className="text-gray-500 italic py-8">
+								Detailed write-up coming soon. Check out the links above to learn more.
+							</p>
 						)}
 					</>
 				)}
-			</div>
+			</article>
 		</div>
 	);
 };
