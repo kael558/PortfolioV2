@@ -10,11 +10,12 @@ export default [
 	},
 	{
 		title: "Wilderness Survival App",
-		description: "A mobile app to track patient vitals in outdoor high-pressure environments",
+		description:
+			"A mobile app to track patient vitals in outdoor high-pressure environments",
 		folder: "wilderness-survival",
 		percentComplete: 100,
 		date: { from: "2021-09", to: "2022-04" },
-		tags: ["School"]
+		tags: ["School"],
 	},
 	{
 		title: "Shopify Marketplace Mirror",
@@ -22,7 +23,7 @@ export default [
 		folder: "shopify",
 		percentComplete: 100,
 		date: { from: "2020-09", to: "2020-12" },
-		tags: ["School"]
+		tags: ["School"],
 	},
 	{
 		title: "Parkour Map App",
@@ -30,16 +31,17 @@ export default [
 		folder: "parkour-map",
 		percentComplete: 100,
 		date: { from: "2020-04", to: "2020-05" },
-		tags: ["Startup"]
+		tags: ["Startup"],
 	},
 
 	{
 		title: "MineSweeper AI",
-		description: "A deep learning model to predict the next move in a game of MineSweeper",
+		description:
+			"A deep learning model to predict the next move in a game of MineSweeper",
 		folder: "minesweeper",
 		percentComplete: 100,
 		date: { from: "2020-01", to: "2020-03" },
-		tags: ["Learning", "Hobby"]
+		tags: ["Learning", "Hobby"],
 	},
 	{
 		title: "Optical Character Recognition",
@@ -47,7 +49,7 @@ export default [
 		folder: "ocr",
 		percentComplete: 100,
 		date: "2020-01",
-		tags: ["Learning", "Hobby"]
+		tags: ["Learning", "Hobby"],
 	},
 	{
 		title: "TicTacToe Agent",
@@ -55,7 +57,7 @@ export default [
 		folder: "tictactoe",
 		percentComplete: 100,
 		date: "2019-12",
-		tags: ["Learning", "Hobby"]
+		tags: ["Learning", "Hobby"],
 	},
 	{
 		title: "VizMotion",
@@ -64,19 +66,20 @@ export default [
 		percentComplete: 100,
 		date: "2024-08",
 		tags: ["Hackathon", "Video"],
-		video: "https://lablab.ai/event/ibm-watsonx-challenge/recallvault/vizmotion",
-		placement: "4th Place"
+		video:
+			"https://lablab.ai/event/ibm-watsonx-challenge/recallvault/vizmotion",
+		placement: "4th Place",
 	},
 	{
 		title: "Visualizing Diversity",
-		description: "A data visualization tool to analyze diversity in the student populations",
+		description:
+			"A data visualization tool to analyze diversity in the student populations",
 		folder: "visualizing-diversity",
 		percentComplete: 100,
 		date: { from: "2021-05", to: "2022-01" },
 		tags: ["Research", "Learning", "Launched"],
 		has_project_details: true,
-		link: "https://kael558.github.io/EDIProjectPage/"
-
+		link: "https://kael558.github.io/EDIProjectPage/",
 	},
 	{
 		title: "Semantic Clustering & Searching Research Papers",
@@ -86,9 +89,9 @@ export default [
 		date: "2022-10",
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
-		video: "https://lablab.ai/event/transforming-with-transformers/hummingbirds/Research%20Paper%20Clustering",
-		placement: "1st Place"
-
+		video:
+			"https://lablab.ai/event/transforming-with-transformers/hummingbirds/Research%20Paper%20Clustering",
+		placement: "1st Place",
 	},
 	{
 		title: "Stable Diffusion Video Creator",
@@ -98,8 +101,9 @@ export default [
 		date: "2022-11",
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
-		video: "https://lablab.ai/event/stable-diffusion-hackathon/Fast%20Path/Stable%20Diffusion%20Creator%20Tool",
-		placement: "1st Place"
+		video:
+			"https://lablab.ai/event/stable-diffusion-hackathon/Fast%20Path/Stable%20Diffusion%20Creator%20Tool",
+		placement: "1st Place",
 	},
 	{
 		title: "Automated Annotations with Zero-shot Learning",
@@ -119,7 +123,7 @@ export default [
 		tags: ["Hackathon", "Video"],
 		has_project_details: true,
 		video: "https://lablab.ai/event/ai21-labs-hackathon/olympia/webindexer",
-		placement: "1st Place"
+		placement: "1st Place",
 	},
 	{
 		title: "Language Learner",
@@ -128,35 +132,39 @@ export default [
 		percentComplete: 100,
 		date: "2023-07",
 		tags: ["Hackathon", "Video"],
-		video: "https://lablab.ai/event/eleven-labs-ai-hackathon/phomemes/languagelearner"
-
+		video:
+			"https://lablab.ai/event/eleven-labs-ai-hackathon/phomemes/languagelearner",
 	},
 	{
 		title: "NavBot",
-		description: "A voice bot to help visually impaired people navigate the web",
+		description:
+			"A voice bot to help visually impaired people navigate the web",
 		folder: "navbot",
 		percentComplete: 100,
 		date: "2023-03",
 		tags: ["Hackathon", "Video"],
-		video: "https://devpost.com/software/navbot-q3b8k2"
+		video: "https://devpost.com/software/navbot-q3b8k2",
 	},
 	{
 		title: "SmartyPants UI Hackathon",
-		description: "Accelerating front-end development with an integrated environment and AI",
+		description:
+			"Accelerating front-end development with an integrated environment and AI",
 		folder: "smartypants-ui",
 		percentComplete: 100,
 		date: "2024-07",
 		tags: ["Hackathon", "Video"],
-		video: "https://lablab.ai/event/langflow-hackathon/smartypants-ui/smarty-pants-ui",
-		placement: "4th Place"
+		video:
+			"https://lablab.ai/event/langflow-hackathon/smartypants-ui/smarty-pants-ui",
+		placement: "4th Place",
 	},
 	{
 		title: "Car Retailer ChatBot",
-		description: "A chatbot integrated with a car retailer's data to help customers find car parts",
+		description:
+			"A chatbot integrated with a car retailer's data to help customers find car parts",
 		folder: "tdot-chatbot",
 		percentComplete: 100,
 		date: { from: "2023-07", to: "2024-04" },
-		tags: ["Contract"]
+		tags: ["Contract"],
 	},
 	{
 		title: "Detective Game with AI NPCs",
@@ -164,7 +172,7 @@ export default [
 		folder: "detective-game",
 		percentComplete: 100,
 		date: { from: "2022-11", to: "2022-12" },
-		tags: ["Hobby"]
+		tags: ["Hobby"],
 	},
 	{
 		title: "AI21 Discord Bot",
@@ -172,7 +180,7 @@ export default [
 		folder: "ai21-discord-bot",
 		percentComplete: 100,
 		date: "2023-07",
-		tags: ["Contract"]
+		tags: ["Contract"],
 	},
 	{
 		title: "Font Diffusion",
@@ -180,7 +188,7 @@ export default [
 		folder: "font-diffusion",
 		percentComplete: 100,
 		date: "2023-11",
-		tags: ["Contract"]
+		tags: ["Contract"],
 	},
 	{
 		title: "MoeMate",
@@ -189,16 +197,17 @@ export default [
 		percentComplete: 100,
 		date: { from: "2023-04", to: "2023-10" },
 		tags: ["Contract", "Launched"],
-		link: "https://moemate.io"
+		link: "https://moemate.io",
 	},
 	{
 		title: "PixPal Desktop",
-		description: "Interactive characters that assist and react, aware of what's happening on your screen",
+		description:
+			"Interactive characters that assist and react, aware of what's happening on your screen",
 		folder: "pixpal-desktop",
 		percentComplete: 100,
 		date: { from: "2023-11", to: "2024-04" },
 		tags: ["Startup", "Launched"],
-		link: "https://www.elagonai.com/"
+		link: "https://www.elagonai.com/",
 	},
 	{
 		title: "PixPal Website",
@@ -208,7 +217,7 @@ export default [
 		date: { from: "2024-05", to: "2024-08" },
 		tags: ["Startup", "Launched"],
 		has_project_details: true,
-		link: "https://pixpal.ca"
+		link: "https://pixpal.ca",
 	},
 	{
 		title: "SimpleChain",
@@ -221,7 +230,8 @@ export default [
 	},
 	{
 		title: "Personal AI Assistant",
-		description: "An AI assistant available through calling and texting. Can call Ubers, check bus routes, and search for things near you with images via SMS.",
+		description:
+			"An AI assistant available through calling and texting. Can call Ubers, check bus routes, and search for things near you with images via SMS.",
 		folder: "voice-assistant",
 		percentComplete: 100,
 		date: { from: "2024-07", to: "2024-10" },
@@ -230,7 +240,8 @@ export default [
 	},
 	{
 		title: "Fluent Future",
-		description: "A language learning app for newcomers. Practice speaking with instant feedback. 2,500+ active learners, 4.9/5 rating. Available on Android and iOS.",
+		description:
+			"A language learning app for newcomers. Practice speaking with instant feedback. 2,500+ active learners, 4.9/5 rating. Available on Android and iOS.",
 		folder: "fluent-future",
 		percentComplete: 100,
 		date: { from: "2024-05" },
@@ -251,7 +262,8 @@ export default [
 	},
 	{
 		title: "SmartyPants UI",
-		description: "Accelerating front-end development with an integrated environment and AI",
+		description:
+			"Accelerating front-end development with an integrated environment and AI",
 		folder: "smartypants-ui",
 		percentComplete: 40,
 		date: { from: "2024-07" },
@@ -259,7 +271,6 @@ export default [
 		has_project_details: true,
 		required_investment: 10000,
 		deferred: true,
-
 	},
 	{
 		title: "ScriptableAI",
@@ -273,7 +284,8 @@ export default [
 	},
 	{
 		title: "Viona Companion",
-		description: "A personalized hardware companion for mental support and loneliness",
+		description:
+			"A personalized hardware companion for mental support and loneliness",
 		folder: "viona",
 		percentComplete: 10,
 		date: { from: "2024-07" },
@@ -287,7 +299,6 @@ export default [
 		percentComplete: 0,
 		date: null,
 		tags: ["Startup"],
-
 	},
 	{
 		title: "Auto Complete Everywhere - Google chrome extension",
@@ -295,7 +306,7 @@ export default [
 		folder: "auto-complete-everywhere",
 		percentComplete: 0,
 		date: null,
-		tags: ["Startup"]
+		tags: ["Startup"],
 	},
 	{
 		title: "Commercialized Web Indexer",
@@ -304,12 +315,12 @@ export default [
 		percentComplete: 100,
 		date: { from: "2024-12" },
 		tags: ["Startup", "Launched"],
-		link: "https://webindexer.app"
-
+		link: "https://webindexer.app",
 	},
 	{
 		title: "GenPage",
-		description: "A prompt-to-design tool for creating content. Used to grow a TikTok to 8k followers.",
+		description:
+			"A prompt-to-design tool for creating content. Used to grow a TikTok to 8k followers.",
 		folder: "genpage",
 		percentComplete: 100,
 		date: { from: "2025-07", to: "2025-12" },
@@ -318,7 +329,8 @@ export default [
 	},
 	{
 		title: "HackerHouse Discord Bot",
-		description: "Discord bot with ducking that ran on a Raspberry Pi. Acted as a doorbell—people could hear Steve Martin ask to be let in. Also supported a music queue.",
+		description:
+			"Discord bot with ducking that ran on a Raspberry Pi. Acted as a doorbell—people could hear Steve Martin ask to be let in. Also supported a music queue.",
 		folder: "hacker-house-discord-bot",
 		percentComplete: 100,
 		date: "2026-01",
@@ -328,16 +340,18 @@ export default [
 	},
 	{
 		title: "Teleprompter",
-		description: "Generates videos of teleprompts using Manim. Used to grow TikTok and Instagram to 1.5k followers.",
+		description:
+			"Generates videos of teleprompts using Manim. Used to grow TikTok and Instagram to 1.5k followers.",
 		folder: "teleprompter",
 		percentComplete: 100,
 		date: { from: "2024", to: "2025" },
-		tags: ["Hobby", "Video"],
+		tags: ["Hobby"],
 		has_project_details: true,
 	},
 	{
 		title: "OutBoundHQ",
-		description: "Create content for social media and schedule posts. All-in-one platform for outbound—find leads, grow social media, completely automated.",
+		description:
+			"Create content for social media and schedule posts. All-in-one platform for outbound—find leads, grow social media, completely automated.",
 		folder: "outboundhq",
 		percentComplete: 100,
 		date: "2026-01",
@@ -347,7 +361,8 @@ export default [
 	},
 	{
 		title: "Pitch Tank",
-		description: "An event where pitchers pitch and the audience can live trade founder stock. $1M in simulated capital, real-time market.",
+		description:
+			"An event where pitchers pitch and the audience can live trade founder stock. $1M in simulated capital, real-time market.",
 		folder: "pitchtank",
 		percentComplete: 100,
 		date: "2025-10",
@@ -357,16 +372,18 @@ export default [
 	},
 	{
 		title: "ScrapAI",
-		description: "Automated lead finding and cold emailing tool. Integrated with domain purchasing, auto-generating, scheduling, and sending emails.",
+		description:
+			"Automated lead finding and cold emailing tool. Integrated with domain purchasing, auto-generating, scheduling, and sending emails.",
 		folder: "scrapai",
 		percentComplete: 100,
 		date: { from: "2025" },
-		tags: ["Startup"],
+		tags: ["Hobby"],
 		has_project_details: true,
 	},
 	{
 		title: "TheOrchestrator",
-		description: "Developer tool that creates pipelines from input/output examples using LLMs. Monitors accuracy with automatic model routing optimizing for cost/accuracy.",
+		description:
+			"Developer tool that creates pipelines from input/output examples using LLMs. Monitors accuracy with automatic model routing optimizing for cost/accuracy.",
 		folder: "the-orchestrator",
 		percentComplete: 100,
 		date: { from: "2025" },
@@ -397,7 +414,7 @@ export default [
 		folder: "cs50-web-dev",
 		percentComplete: 100,
 		date: { from: "2020-04", to: "2020-05" },
-		tags: ["Learning"]
+		tags: ["Learning"],
 	},
 	{
 		title: "DataCamp's Data Scientist with Python Course",
@@ -405,7 +422,6 @@ export default [
 		folder: "datacamp",
 		percentComplete: 100,
 		date: { from: "2022-08", to: "2022-09" },
-		tags: ["Learning"]
-	}
+		tags: ["Learning"],
+	},
 ];
-
