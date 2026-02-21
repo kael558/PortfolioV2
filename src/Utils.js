@@ -60,6 +60,7 @@ const getTagColor = (tag) => {
 		Hobby: "bg-emerald-500 text-white",
 		Launched: "bg-blue-500 text-white",
 		Video: "bg-rose-500 text-white",
+		Event: "bg-amber-600 text-white",
 	};
 	return colors[tag] || "bg-gray-500 text-white"; // Default color
 };

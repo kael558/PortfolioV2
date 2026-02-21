@@ -1,5 +1,30 @@
+import React, { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { formatDateRange, getProgressBarColor } from "../Utils";
+
+const ProjectCoverImage = ({ project }) => {
+	const [imageError, setImageError] = useState(false);
+	const hasValidFolder = project.folder;
+
+	if (!hasValidFolder || imageError) {
+		return (
+			<div className="w-full md:w-1/3 h-48 rounded-lg mb-4 md:mb-0 md:mr-6 flex items-center justify-center bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-gray-700/50">
+				<span className="text-4xl font-bold text-gray-600/50">
+					{project.title.charAt(0)}
+				</span>
+			</div>
+		);
+	}
+
+	return (
+		<img
+			src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
+			alt={project.title}
+			className="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-6"
+			onError={() => setImageError(true)}
+		/>
+	);
+};
 
 const CurrentProject = ({ project, handleNavigate }) => {
 	return (
@@ -9,11 +34,7 @@ const CurrentProject = ({ project, handleNavigate }) => {
 			onClick={(e) => project.has_project_details && handleNavigate(e, project)}
 		>
 			<div className="flex flex-col md:flex-row h-full">
-				<img
-					src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
-					alt={project.title}
-					className="w-full md:w-1/3 h-48 object-cover rounded-lg mb-4 md:mb-0 md:mr-6"
-				/>
+				<ProjectCoverImage project={project} />
 				<div className="flex-1 flex flex-col justify-between">
 					<div>
 						<div className="flex justify-between items-center mb-2">

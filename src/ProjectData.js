@@ -1,5 +1,3 @@
-import { to } from "react-spring";
-
 export default [
 	{
 		title: "Automated Data Wrangling Pipeline",
@@ -223,7 +221,7 @@ export default [
 	},
 	{
 		title: "Personal AI Assistant",
-		description: "An AI assistant available through calling and texting",
+		description: "An AI assistant available through calling and texting. Can call Ubers, check bus routes, and search for things near you with images via SMS.",
 		folder: "voice-assistant",
 		percentComplete: 100,
 		date: { from: "2024-07", to: "2024-10" },
@@ -232,17 +230,13 @@ export default [
 	},
 	{
 		title: "Fluent Future",
-		description: "A language learning app for newcomers",
+		description: "A language learning app for newcomers. Practice speaking with instant feedback. 2,500+ active learners, 4.9/5 rating. Available on Android and iOS.",
 		folder: "fluent-future",
-		percentComplete: 90,
+		percentComplete: 100,
 		date: { from: "2024-05" },
-		tags: ["Startup"],
+		tags: ["Startup", "Launched"],
 		has_project_details: true,
-		required_investment: 10000,
-		next_milestone: {
-			title: "Launch",
-			date: "2024-10"
-		}
+		link: "https://fluentfuture.ca/",
 	},
 	{
 		title: "Rapid Launch",
@@ -312,6 +306,72 @@ export default [
 		tags: ["Startup", "Launched"],
 		link: "https://webindexer.app"
 
+	},
+	{
+		title: "GenPage",
+		description: "A prompt-to-design tool for creating content. Used to grow a TikTok to 8k followers.",
+		folder: "genpage",
+		percentComplete: 100,
+		date: { from: "2025-07", to: "2025-12" },
+		tags: ["Startup", "Hobby"],
+		has_project_details: true,
+	},
+	{
+		title: "HackerHouse Discord Bot",
+		description: "Discord bot with ducking that ran on a Raspberry Pi. Acted as a doorbell—people could hear Steve Martin ask to be let in. Also supported a music queue.",
+		folder: "hacker-house-discord-bot",
+		percentComplete: 100,
+		date: "2026-01",
+		tags: ["Hobby"],
+		has_project_details: true,
+		github: "https://github.com/kael558/HackerHouseDBot",
+	},
+	{
+		title: "Teleprompter",
+		description: "Generates videos of teleprompts using Manim. Used to grow TikTok and Instagram to 1.5k followers.",
+		folder: "teleprompter",
+		percentComplete: 100,
+		date: { from: "2024", to: "2025" },
+		tags: ["Hobby", "Video"],
+		has_project_details: true,
+	},
+	{
+		title: "OutBoundHQ",
+		description: "Create content for social media and schedule posts. All-in-one platform for outbound—find leads, grow social media, completely automated.",
+		folder: "outboundhq",
+		percentComplete: 100,
+		date: "2026-01",
+		tags: ["Startup", "Launched"],
+		has_project_details: true,
+		link: "https://outboundhq.ca/",
+	},
+	{
+		title: "Pitch Tank",
+		description: "An event where pitchers pitch and the audience can live trade founder stock. $1M in simulated capital, real-time market.",
+		folder: "pitchtank",
+		percentComplete: 100,
+		date: "2025-10",
+		tags: ["Startup", "Event"],
+		has_project_details: true,
+		link: "https://www.pitchtank.app/",
+	},
+	{
+		title: "ScrapAI",
+		description: "Automated lead finding and cold emailing tool. Integrated with domain purchasing, auto-generating, scheduling, and sending emails.",
+		folder: "scrapai",
+		percentComplete: 100,
+		date: { from: "2025" },
+		tags: ["Startup"],
+		has_project_details: true,
+	},
+	{
+		title: "TheOrchestrator",
+		description: "Developer tool that creates pipelines from input/output examples using LLMs. Monitors accuracy with automatic model routing optimizing for cost/accuracy.",
+		folder: "the-orchestrator",
+		percentComplete: 100,
+		date: { from: "2025" },
+		tags: ["Startup", "Hobby"],
+		has_project_details: true,
 	},
 	{
 		title: "Personal Knowledge Management System",

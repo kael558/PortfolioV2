@@ -10,47 +10,50 @@ import BackToTop from "../components/BackToTop";
 
 import React, { useEffect, useState } from "react";
 
+
+let [currentProjects, _] = projects.reduce(
+	(acc, p) => {
+		acc[p.percentComplete < 100 ? 0 : 1].push(p);
+		return acc;
+	},
+	[[], []]
+);
+
+
+currentProjects.sort((a, b) => {
+	// Future projects (percentComplete = 0) go last
+	if (a.percentComplete === 0 && b.percentComplete !== 0) return 1;
+	if (b.percentComplete === 0 && a.percentComplete !== 0) return -1;
+
+	// Deferred projects (has property `deferred`) go second last
+	if (a.deferred && !b.deferred) return 1;
+	if (b.deferred && !a.deferred) return -1;
+
+	// Sort by percent complete (higher percentComplete first)
+	if (a.percentComplete !== b.percentComplete) {
+		return b.percentComplete - a.percentComplete;
+	}
+
+	// If all else is equal, sort by date
+	if (!a.date) return 1; // No date means project hasn't started yet
+	if (!b.date) return -1;
+
+	const dateA = typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
+	const dateB = typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
+	return dateB.localeCompare(dateA); // Later dates come first
+});
+
 const ProjectsPage = () => {
 	const navigate = useNavigate();
 
 	const isFirstVisit = useFirstVisit();
-	let [currentProjects, _] = projects.reduce(
-		(acc, p) => {
-			acc[p.percentComplete < 100 ? 0 : 1].push(p);
-			return acc;
-		},
-		[[], []]
+
+
+	const savedScrollPosition = sessionStorage.getItem(
+		"scrollPosition"
 	);
-
-
-	currentProjects.sort((a, b) => {
-		// Future projects (percentComplete = 0) go last
-		if (a.percentComplete === 0 && b.percentComplete !== 0) return 1;
-		if (b.percentComplete === 0 && a.percentComplete !== 0) return -1;
-
-		// Deferred projects (has property `deferred`) go second last
-		if (a.deferred && !b.deferred) return 1;
-		if (b.deferred && !a.deferred) return -1;
-
-		// Sort by percent complete (higher percentComplete first)
-		if (a.percentComplete !== b.percentComplete) {
-			return b.percentComplete - a.percentComplete;
-		}
-
-		// If all else is equal, sort by date
-		if (!a.date) return 1; // No date means project hasn't started yet
-		if (!b.date) return -1;
-
-		const dateA = typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
-		const dateB = typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
-		return dateB.localeCompare(dateA); // Later dates come first
-	});
-
-
 	useEffect(() => {
-		const savedScrollPosition = sessionStorage.getItem(
-			"scrollPosition"
-		);
+
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
 		} else {
@@ -93,11 +96,13 @@ const ProjectsPage = () => {
 		delay: isFirstVisit ? 1200 : 0,
 	});
 
+
 	const trail = useTrail(currentProjects.length, {
 		to: { opacity: 1, transform: "translateY(0)" },
-		from: isFirstVisit ? { opacity: 0, transform: "translateY(20px)" } : {},
+		from: savedScrollPosition ? {} : { opacity: 0, transform: "translateY(20px)" },
 		config: config.gentle,
-		delay: 100,
+		delay: savedScrollPosition ? 0 : 100,
+		reset: false
 	});
 
 	return (

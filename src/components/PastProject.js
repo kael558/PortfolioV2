@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { formatDateRange, getTagColor } from "../Utils";
+
+const ProjectCoverImage = ({ project }) => {
+	const [imageError, setImageError] = useState(false);
+	const hasValidFolder = project.folder;
+
+	if (!hasValidFolder || imageError) {
+		return (
+			<div className="w-full h-48 flex items-center justify-center bg-gradient-to-br from-purple-900/50 to-pink-900/50 border-b border-gray-700/50 shrink-0">
+				<span className="text-5xl font-bold text-gray-600/50">
+					{project.title.charAt(0)}
+				</span>
+			</div>
+		);
+	}
+
+	return (
+		<img
+			src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
+			alt={project.title}
+			className="w-full h-48 object-cover"
+			onError={() => setImageError(true)}
+		/>
+	);
+};
 
 const PastProject = ({ project, handleNavigate }) => {
 
@@ -61,11 +85,7 @@ const PastProject = ({ project, handleNavigate }) => {
 					</div>
 				</div>
 			)}
-			<img
-				src={`${process.env.PUBLIC_URL}/projects/${project.folder}/cover.png`}
-				alt={project.title}
-				className="w-full h-48 object-cover"
-			/>
+			<ProjectCoverImage project={project} />
 			<div className="p-4 md:p-6">
 				<h3 className="text-lg md:text-xl font-semibold mb-2 text-purple-300">
 					{project.title}

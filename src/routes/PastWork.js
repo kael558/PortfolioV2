@@ -33,34 +33,32 @@ const PastProjectsPage = () => {
 	const [filteredProjects, setFilteredProjects] = useState(pastProjects);
 
 
-	pastProjects.sort((a, b) => {
-		if (!a.date)
-			// if no date is provided, assume it hasn't started yet
-			return 1;
-		if (!b.date) return -1;
-
-		// Sort by Placement (its a string)
-		if (filter === "Hackathon" || filter === "Video") {
-			if (a.placement && !b.placement) return -1;
-			if (b.placement && !a.placement) return 1;
-			if (a.placement && b.placement) {
-				if (a.placement === b.placement) {
-					return 0;
-				}
-				return a.placement < b.placement ? -1 : 1;
-			}
-		}
-
-		const dateA =
-			typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
-		const dateB =
-			typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
-		return dateB.localeCompare(dateA);
-	});
-
-
-
 	useEffect(() => {
+		pastProjects.sort((a, b) => {
+			if (!a.date)
+				// if no date is provided, assume it hasn't started yet
+				return 1;
+			if (!b.date) return -1;
+
+			// Sort by Placement (its a string)
+			if (filter === "Hackathon" || filter === "Video") {
+				if (a.placement && !b.placement) return -1;
+				if (b.placement && !a.placement) return 1;
+				if (a.placement && b.placement) {
+					if (a.placement === b.placement) {
+						return 0;
+					}
+					return a.placement < b.placement ? -1 : 1;
+				}
+			}
+
+			const dateA =
+				typeof a.date === "string" ? a.date : a.date?.to ?? a.date?.from;
+			const dateB =
+				typeof b.date === "string" ? b.date : b.date?.to ?? b.date?.from;
+			return dateB.localeCompare(dateA);
+		});
+
 		if (filter === "All") {
 			setFilteredProjects(pastProjects);
 		} else {
@@ -75,11 +73,12 @@ const PastProjectsPage = () => {
 	uniqueTags.sort();
 	uniqueTags.unshift("All");
 
+	const savedScrollPosition = sessionStorage.getItem(
+		"pastProjectsScrollPosition"
+	);
 
 	useEffect(() => {
-		const savedScrollPosition = sessionStorage.getItem(
-			"pastProjectsScrollPosition"
-		);
+
 		if (savedScrollPosition) {
 			window.scrollTo(0, parseInt(savedScrollPosition, 10));
 		} else {
@@ -122,12 +121,13 @@ const PastProjectsPage = () => {
 		delay: isFirstVisit ? 1200 : 0,
 	});
 
+
 	const trail = useTrail(filteredProjects.length, {
 		to: { opacity: 1, transform: "translateY(0)" },
-		from: { opacity: 0, transform: "translateY(20px)" },
+		from: savedScrollPosition ? {} : { opacity: 0, transform: "translateY(20px)" },
 		config: config.gentle,
-		delay: (i) => i * 50 + 200, // Staggered delay
-		reset: true
+		delay: savedScrollPosition ? 0 : ((i) => i * 50 + 200), // Staggered delay
+		reset: false
 	});
 
 	return (

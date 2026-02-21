@@ -194,7 +194,7 @@ const HomePage = () => {
 									{" "}— A roleplay-focused auditory experience web application
 								</li>
 								<li>
-									<a href="webindexer.app" className="text-pink-400 hover:underline transition-all">Web Indexer</a>
+									<a href="https://webindexer.app" className="text-pink-400 hover:underline transition-all">Web Indexer</a>
 									{" "}— An AI chatbot tool for websites reducing customer queries by 80% and increasing conversion by 30%
 								</li>
 							</ul>
