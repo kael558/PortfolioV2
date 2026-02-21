@@ -1,3 +1,8 @@
+# Fluent Future: Speak Confidently, Succeed Professionally
+
+Fluent Future is now live! Practice speaking with instant feedback, anytime, anywhere. Trusted by 2,500+ active learners with a 4.9/5 rating. Available on [Android](https://play.google.com/store/apps/details?id=ca.simplilifetech.fluentfuture) and [iOS (TestFlight)](https://testflight.apple.com/join/KeAdmMBY).
+
+---
 
 # Fluent Future: Revolutionizing Language Learning for Canadian Newcomers
 
