@@ -8,9 +8,9 @@ The obvious fix? Connect the doorbell to Discord. When someone rings, play a sou
 
 ## The Steve Martin Twist
 
-We could have used a boring doorbell chime. Instead, we used a clip of Steve Martin—*"Could somebody let me in? Please?"*—from *The Jerk*. It fit the vibe. It was memorable. And it made people actually want to answer the door.
+We could have used a boring doorbell chime. Instead, we used AI voice synthesis to generate doorbell announcements in Steve Martin's voice. Any message, any wording—synthesised to sound like Steve Martin saying it. It fit the vibe, it was memorable, and it made people actually want to answer the door.
 
-So the bot's job: when the doorbell triggers, play that clip in the Discord voice channel. Everyone in the house, whether they're in the channel or not, gets a notification. Problem solved.
+So the bot's job: when the doorbell triggers, play the synthesised announcement in the Discord voice channel. Everyone in the house, whether they're in the channel or not, gets a notification. Problem solved.
 
 Except we also had a music queue.
 
@@ -18,7 +18,7 @@ Except we also had a music queue.
 
 The Discord bot wasn't just a doorbell. We used it for shared music—someone would queue up a playlist, and we'd listen together while working. That meant the bot was often playing music. When the doorbell rang, we needed the Steve Martin clip to play *over* the music—and be audible.
 
-That's where **audio ducking** came in. Ducking means temporarily lowering the volume of one audio source when another plays. So when Steve Martin asks to be let in, the music dips. You hear him clearly. Then the music comes back up.
+That's where **audio ducking** came in. Ducking means temporarily lowering the volume of one audio source when another plays. So when the Steve Martin announcement plays, the music dips. You hear it clearly. Then the music comes back up.
 
 Implementing ducking in a Discord audio bot is non-trivial. Discord's audio pipeline doesn't natively support it. You have to mix the streams yourself—lower the music gain when the doorbell audio is active, then restore it. I had to dig into the discord-audio library and the underlying audio stack to get it right.
 
@@ -31,7 +31,7 @@ Implementing ducking in a Discord audio bot is non-trivial. Discord's audio pipe
 
 The Pi ran 24/7. It joined the Discord voice channel on startup. It listened for doorbell events (via a local HTTP endpoint or GPIO, depending on how we wired it). When triggered, it would:
 1. Duck the current music (if any)
-2. Play the Steve Martin clip
+2. Play the Steve Martin voice announcement
 3. Unduck the music
 
 The music queue was a separate feature—standard queue logic (add, skip, clear) with the ducking layer on top.
@@ -65,4 +65,4 @@ The music queue was a separate feature—standard queue logic (add, skip, clear)
 
 ## Takeaways
 
-Sometimes the best projects are the ones that solve a tiny, specific problem for a small group of people. A doorbell that plays Steve Martin in Discord might seem silly—but it made the house feel more connected. And building it taught me more about real-time audio than I expected.
+Sometimes the best projects are the ones that solve a tiny, specific problem for a small group of people. A doorbell that announces visitors in Steve Martin's AI-synthesised voice might seem silly—but it made the house feel more connected. And building it taught me more about real-time audio than I expected.
